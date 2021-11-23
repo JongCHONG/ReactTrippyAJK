@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import styled from "styled-components"
-import { HotelContext, HotelContextProvider } from "./contexts/ContextHotel"
+import { HotelContextProvider } from "./contexts/ContextHotel"
 
 import Home from "./pages/Home"
 import Hotels from "./pages/Hotels"
@@ -44,13 +44,14 @@ const App = () => {
               <Nav />
             </Header>
 
-          <Routes>
-            <Route exact path="/" element={<Home />} />
-            <Route path="/hotels/" element={<Hotels />} />
-            <Route path="/hotel/" element={<HotelPage />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </BrowserRouter>
+            <Routes>
+              <Route exact path="/" element={<Home />} />
+              <Route path="/hotels/" element={<Hotels />} />
+              <Route path="/hotel/" element={<HotelPage />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </BrowserRouter>
+        </HotelContextProvider>
       </Container>
     </Body>
   )

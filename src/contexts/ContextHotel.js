@@ -3,10 +3,10 @@ import { createContext, useState, useEffect } from 'react'
 const HotelContext= createContext({})
 
 const HotelContextProvider = props => {
-  const [listHotel, setlistHotel] = useState(null)
+  const [listHotel, setlistHotel] = useState()
   
   useEffect(() => {
-    fetch(`https://trippy-konexio.herokuapp.com/api/hotels/`)
+    fetch(`https://trippy-konexio.herokuapp.com/api/hotels/city`)
     .then(response => response.json)
     .then(data => setlistHotel(data))
   },[])
