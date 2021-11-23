@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import styled from "styled-components"
+import { HotelContext, HotelContextProvider } from "./contexts/ContextHotel"
 
 import Home from "./pages/Home"
 import Hotels from "./pages/Hotels"
@@ -32,26 +33,25 @@ const H1 = styled.h1`
 const App = () => {
   return (
     <Body>
-      <div>
-
       <Container>
-        <BrowserRouter>
-          <Header>
-            <H1>
-              TrippyAJK
-            </H1>
-            <Nav />
-          </Header>
+        <HotelContextProvider>
+          <BrowserRouter>
+            <Header>
+              <H1>
+                TrippyAJK
+              </H1>
+              <Nav />
+            </Header>
 
-          <Routes>
-            <Route exact path="/" element={<Home />} />
-            <Route path="/hotels" element={<Hotels />} />
-            <Route path="/hotelpage" element={<HotelPage />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </BrowserRouter>
+            <Routes>
+              <Route exact path="/" element={<Home />} />
+              <Route path="/hotels" element={<Hotels />} />
+              <Route path="/hotelpage" element={<HotelPage />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </BrowserRouter>
+        </HotelContextProvider>
       </Container>
-      </div>
     </Body>
   )
 }
