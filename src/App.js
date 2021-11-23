@@ -21,8 +21,9 @@ const Header = styled.div`
   width: 100%;
   background-color: #ABE7E7;
   display: flex;
+  padding: 0px 20px; 
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
 `
 const H1 = styled.h1`
   margin: 0;
@@ -45,8 +46,8 @@ const App = () => {
 
           <Routes>
             <Route exact path="/" element={<Home />} />
-            <Route path="/hotels" element={<Hotels />} />
-            <Route path="/hotelpage" element={<HotelPage />} />
+            <Route path="/hotels/" element={<Hotels />} />
+            <Route path="/hotel/" element={<HotelPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
