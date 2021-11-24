@@ -1,17 +1,23 @@
-import { RiStarSFill } from 'react-icons/ri'
+import { RiStarSFill, RiStarSLine } from 'react-icons/ri'
 
 const Stars = (props) => {
   const { numStars } = props
   const arrayStars = []
 
-  for ( let i = 1; i <= numStars; i++) {
-    arrayStars.push(i)
+  if (numStars == null) {
+    for ( let i = 1; i <= 5; i++) {
+      arrayStars.push(0)
+    }
+  } else {
+    for ( let i = 1; i <= numStars; i++) {
+      arrayStars.push(i)
+    }
   }
 
-  console.log(numStars)
+  console.log(arrayStars)
   return(
     <>
-    {arrayStars.map(element => <RiStarSFill /> )}
+    {arrayStars.map(element => element !== 0 ? <RiStarSFill /> : <RiStarSLine /> )}
     </>
   )
 }
