@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 
 import GoogleMapReact from 'google-map-react'
+
+import HotelMarker from './HotelMarker'
 import styled from 'styled-components'
 
 const MapContainer = styled.div`
@@ -8,33 +10,39 @@ const MapContainer = styled.div`
   width: 100%;
 `
 
-const HotelMap = () => {
-  const [location, setLocation] = useState(null)
+const HotelMap = props => {
+  const [centerLocation, setCenterLocation] = useState(null)
+  const { listHotel } = props
+  useEffect(() => {
+    setCenterLocation({
+      lat: listHotel.center.lat,
+      lng: listHotel.center.lon
+    })
+  },[listHotel])
 
-  useEffect(() => { // => componentDidMount
-    navigator.geolocation.getCurrentPosition (
-      location => {
-        console.log(location.coods)
-        setLocation({
-          lat: location.coords.latitude,
-          lng: location.coords.longitude
-        })
-      }
-    )
-  }, [])
-  if (!location) {
-    return <p>Chargement...</p>
-  }
-  console.log(location);
+  // useEffect(() => {
+  //   fetch(`https://trippy-konexio.herokuapp.com/api/hotels/city/paris`)
+  //   .then(response => response.json())
+  //   .then(data => setcenterLocation({
+  //     lat: data.center.lat,
+  //     lng: data.center.lon
+  //   }))
+  // }, [])
+
+  // if (!centerLocation) {
+  //   return <p>Chargement...</p>
+  // }
+
+  console.log(listHotel)
   return (
 
     <MapContainer>
       <GoogleMapReact
         bootstrapURLKeys={{ key: "" }}
-        defaultCenter={location}
-        defaultZoom={14}
+        defaultCenter={centerLocation}
+        defaultZoom={listHotel.zoom}
       >
-
+      
       </GoogleMapReact>
     </MapContainer>
   )

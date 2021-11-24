@@ -57,7 +57,7 @@ const Hotels = () => {
     setPage(element)
   }
 
-  // console.log(page)
+  // console.log(listHotel.center)
   return (
     <>
       <SectionListHotel>
@@ -76,7 +76,7 @@ const Hotels = () => {
           ))}
         </DivLeft>
         <DivRight>
-          <HotelMap />
+          <HotelMap listHotel={listHotel}/>
         </DivRight>
 
       </SectionListHotel>
