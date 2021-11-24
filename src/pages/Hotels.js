@@ -28,7 +28,7 @@ const ImageHotelMiniature = styled.div`
 
 const Hotels = (props) => {
   const { city } = useParams();
-  console.log("city",city)
+  // console.log("city",city)
   const [listHotel, setlistHotel] = useState(null)
   const [page, setPage] = useState(1)
   let numPage = []

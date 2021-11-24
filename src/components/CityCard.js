@@ -89,7 +89,7 @@ export default function CityCard() {
         .then(response => response.json())
         .then(data => setCity(data.cities))
     },[])
-    console.log("city: ",city);
+    // console.log("city: ",city);
     if(!city) {
         return null
     }
