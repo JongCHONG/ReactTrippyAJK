@@ -3,10 +3,12 @@ import styled from "styled-components"
 
 const NavbarUl = styled.ul`
   display: flex;
+  margin-right : 50px;
 `
 const NavBarLi = styled.li`
   list-style: none;  
-  margin: 0px 5px;
+  margin: 0px 15px;
+  font-size : 25px;
 `
 
 const Nav = () => {
