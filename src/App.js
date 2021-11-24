@@ -9,7 +9,7 @@ import Nav from "./components/Nav"
 
 const Body = styled.div`
   background-color: #D4F5F5;
-  height: 1000px;
+  height: 2000px;
   color: #554348
 `
 const Container = styled.div`
