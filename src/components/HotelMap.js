@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 
 import GoogleMapReact from 'google-map-react'
-
 import HotelMarker from './HotelMarker'
 import styled from 'styled-components'
 
@@ -12,7 +11,9 @@ const MapContainer = styled.div`
 
 const HotelMap = props => {
   const [centerLocation, setCenterLocation] = useState(null)
+ 
   const { listHotel } = props
+  
   useEffect(() => {
     setCenterLocation({
       lat: listHotel.center.lat,
@@ -29,12 +30,13 @@ const HotelMap = props => {
         defaultCenter={centerLocation}
         defaultZoom={listHotel.zoom}
       >
-      {listHotel.results.map(element => 
+      {listHotel.results.map((element, index) => 
         <HotelMarker 
-          key={element._id} 
-          lat={element.location.lat} 
-          lng={element.location.lon} 
-          name={element.name}
+        key={element._id} 
+        lat={element.location.lat} 
+        lng={element.location.lon} 
+        listHotel={element}
+        id={element._id}
         />
       )}
       </GoogleMapReact>
