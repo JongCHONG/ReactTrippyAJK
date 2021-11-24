@@ -3,8 +3,10 @@ import { useEffect, useState } from "react"
 import styled from "styled-components"
 
 import ButtonPage from "../components/ButtonPage"
+import { useParams } from "react-router-dom";
 
 // import { GetHotel } from "../utils/fetchAPI"
+
 
 const DivLeft = styled.div`
   width: 600px;
@@ -24,7 +26,9 @@ const ImageHotelMiniature = styled.div`
   background-repeat: none;
 `
 
-const Hotels = () => {
+const Hotels = (props) => {
+  const {id} = useParams()
+  console.log("location",id);
   const [listHotel, setlistHotel] = useState(null)
   const [page, setPage] = useState(1)
   let numPage = []
@@ -50,11 +54,10 @@ const Hotels = () => {
       .then(data => setlistHotel(data))
   }
 
-  console.log(page)
+  // console.log(page)
   return (
       <DivLeft>
         {listHotel.results.map(element => (
-          <>
               <HotelMiniature key={element._id}>  
                 <ImageHotelMiniature style={{ backgroundImage: `url('https://trippy-konexio.herokuapp.com/img/hotels/${element.tripAdvisorId}_1.jpg')`}}/>
                 <p>{element.name}</p>
@@ -62,10 +65,13 @@ const Hotels = () => {
                 {element.stars}
                 </p>
               </HotelMiniature>
-          </>
         ))}
-        {numPage.map(element => (
-          <ButtonPage numPage={element} onClick={() => handleOnClick(element)}/>
+        {numPage.map((element,index) => (
+          <ButtonPage 
+            numPage={element} 
+            onClick={() => handleOnClick(element)}
+            key={index}
+          />
         ))}
         
 
