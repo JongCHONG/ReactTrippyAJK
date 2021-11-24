@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 import styled from 'styled-components'
 
 import { FaMapMarkerAlt } from 'react-icons/fa'
@@ -7,7 +9,21 @@ const MarkerContainer = styled.div`
   height: 40px;
   position: relative;
 `
+const InfoWindow = styled.div`
+  background: "white";
+  display: "none";
+`
 const HotelMarker = props => {
+  const [infoWindow, setInfoWindow] = useState(false)
+
+  const handleInfoWindow = () => {
+    if (!infoWindow) {
+      setInfoWindow(true)
+    } else {
+      setInfoWindow(false)
+    }
+  }
+
   return (
     <MarkerContainer>
       <FaMapMarkerAlt 
@@ -20,7 +36,12 @@ const HotelMarker = props => {
           left: '-20px' 
         }} 
       />
-      {props.name}
+      <InfoWindow 
+        onmouseenter={() => handleInfoWindow()} 
+        style={{background: "white", display: "none"}} 
+      >
+        {props.name}
+      </InfoWindow>
     </MarkerContainer>
   )
 }

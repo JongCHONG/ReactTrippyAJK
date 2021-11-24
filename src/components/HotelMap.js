@@ -20,19 +20,6 @@ const HotelMap = props => {
     })
   },[listHotel])
 
-  // useEffect(() => {
-  //   fetch(`https://trippy-konexio.herokuapp.com/api/hotels/city/paris`)
-  //   .then(response => response.json())
-  //   .then(data => setcenterLocation({
-  //     lat: data.center.lat,
-  //     lng: data.center.lon
-  //   }))
-  // }, [])
-
-  // if (!centerLocation) {
-  //   return <p>Chargement...</p>
-  // }
-
   console.log(listHotel)
   return (
 
@@ -42,7 +29,14 @@ const HotelMap = props => {
         defaultCenter={centerLocation}
         defaultZoom={listHotel.zoom}
       >
-      
+      {listHotel.results.map(element => 
+        <HotelMarker 
+          key={element._id} 
+          lat={element.location.lat} 
+          lng={element.location.lon} 
+          name={element.name}
+        />
+      )}
       </GoogleMapReact>
     </MapContainer>
   )
