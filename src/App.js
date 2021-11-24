@@ -9,16 +9,15 @@ import Nav from "./components/Nav"
 
 const Body = styled.div`
   background-color: #D4F5F5;
-  height: 2000px;
+  // height: 2000px;
   color: #554348
+  color: #554348;
 `
 const Container = styled.div`
-  max-width: 1200px;
   width: 100%;
   margin: auto;
 `
 const Header = styled.div`
-  width: 100%;
   background-color: #ABE7E7;
   display: flex;
   padding: 0px 20px; 
@@ -34,7 +33,16 @@ const App = () => {
   return (
     <Body>
       <div>
+        <Container>
+          <BrowserRouter>
+            <Header>
+              <H1>
+                Trippy-Advisor
+              </H1>
+              <Nav />
+            </Header>
 
+<<<<<<< HEAD
       <Container>
         <BrowserRouter>
           <Header>
@@ -52,6 +60,18 @@ const App = () => {
           </Routes>
         </BrowserRouter>
       </Container>
+=======
+            <Routes>
+              <Route exact path="/" element={<Home />} />
+              <Route exact path="/hotels/" element={<Hotels />} />
+              <Route path="/hotels/:city" element={<Hotels />} />
+              <Route exact path="/hotel/" element={<HotelPage />} />
+              <Route path="/hotel/:id" element={<HotelPage />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </BrowserRouter>
+        </Container>
+>>>>>>> main
       </div>
     </Body>
   )
