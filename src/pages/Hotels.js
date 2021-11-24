@@ -17,7 +17,15 @@ const DivLeft = styled.div`
   margin: 10px auto;
   padding: 10px;
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
+`
+const ListHotel = styled.div`
+  overflow-y: scroll;
+  display: flex;
+  flex-wrap: wrap;
+  height: 1020px;
+  scrollbar-width: thin;
 `
 const DivRight = styled.div`
   width: 700px;
@@ -25,15 +33,16 @@ const DivRight = styled.div`
   padding: 10px;
 `
 const HotelMiniature = styled.div`
-  width: 280px;
+  width: 270px;
   margin: 0 10px;
 `
 const ImageHotelMiniature = styled.div`
-  height: 210px;
+  height: 200px;
   background-color: white;
   background-position: center;
   background-size: 100%;
-  background-repeat: none;
+  background-size: cover;
+  background-repeat: no-repeat;
 `
 const Buttons = styled.div`
   display: block;
@@ -72,6 +81,8 @@ const Hotels = () => {
     <>
       <SectionListHotel>
         <DivLeft>
+          <ListHotel>
+
           {listHotel.results.map(element => (
                 <HotelMiniature key={element._id}>  
                   <ImageHotelMiniature style={{ backgroundImage: `url('https://trippy-konexio.herokuapp.com/img/hotels/${element.tripAdvisorId}_1.jpg')`}}/>
@@ -82,6 +93,7 @@ const Hotels = () => {
                   </PriceStars>
                 </HotelMiniature>
           ))}
+          </ListHotel>
           <Buttons>
             {numPage.map(element => (
               <ButtonPage numPage={element} onClick={() => handleOnClick(element)}/>
