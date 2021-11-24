@@ -10,10 +10,11 @@ const DivLeft = styled.div`
   width: 600px;
   margin: 10px 0;
   padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
 `
 const HotelMiniature = styled.div`
   width: 280px;
-  float: left;
   margin: 0 10px;
 `
 const ImageHotelMiniature = styled.div`
@@ -47,7 +48,7 @@ const Hotels = () => {
     setPage(element)
   }
 
-  console.log(page)
+  // console.log(page)
   return (
       <DivLeft>
         {listHotel.results.map(element => (
@@ -62,8 +63,6 @@ const Hotels = () => {
         {numPage.map(element => (
           <ButtonPage numPage={element} onClick={() => handleOnClick(element)}/>
         ))}
-        
-
       </DivLeft>
   )
 }
