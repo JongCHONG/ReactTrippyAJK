@@ -2,6 +2,7 @@ import React from 'react'
 import { useEffect, useState } from 'react'
 import styled from "styled-components"
 import Images from "../Images/Paris_img.jpg"
+import { Link } from "react-router-dom"
 const CityContainer = styled.div`
     display : flex;
     justify-content : center;
@@ -15,7 +16,8 @@ const ImageContainer = styled.div`
     margin : 20px 40px 20px 20px ;
     // height : 500px;
         &:first-child {
-            width : 100% !important;
+            width : 100%;
+            height : 450px;
             margin : 0;
             margin-bottom : 20px;
             display : flex;
@@ -23,6 +25,7 @@ const ImageContainer = styled.div`
             align-items : center;
             position : relative;
         }
+        
 
 `
 const Image = styled.img`
@@ -33,11 +36,13 @@ const Image = styled.img`
     box-shadow: 6px 6px 5px grey;
     cursor : pointer;
         &:first-child {
+            left:0;
             width : 100%;
             height : 450px;
             // border-radius : none;
             object-fit: cover;
             margin-bottom : 20px;
+            // position:absolute;
         }
 `
 const CityName = styled.h2`
@@ -52,6 +57,23 @@ const CityName = styled.h2`
             font-size : 70px;
             text-shadow: 3px 3px black;
             color : #ffff;
+        }
+`
+const AllParagraph = styled.div`
+        &._paris{
+            position : absolute;
+            gap : 10px;
+            color: #fff;
+            bottom : 0px;
+            background : rgba(0,0,0,0.6);
+            width : 100%;
+            // height : 80px;
+            display : flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content : center;
+            padding : 20px;
+            font-size : 18px;
         }
 `
 const Paragraph = styled.p`
@@ -76,30 +98,36 @@ export default function CityCard() {
                 {city.map((cities) => {
                     return <ImageContainer 
                                 key={cities.name}
-                                
                             >
-                                <Image src={`${cities.name === "Paris" ? Images : `https://trippy-konexio.herokuapp.com/${cities.source}`}`}
-                                    alt={cities.name} 
-                                    className={`city`}
-                                />
-                            <CityName className={`cities_element ${cities.name === "Paris"? "paris_element" : ""}`}>
-                                {cities.name}
-                            </CityName>
-                            <Paragraph>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                                Vivamus rutrum in purus eget consequat. 
-                                Nullam aliquet suscipit congue. Cras lacinia lacus eu 
-                                arcu suscipit aliquet.
-                            </Paragraph>
-                            {cities.name === "Paris" &&
-                                <Paragraph>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                     Vivamus rutrum in purus eget consequat. 
-                                    Nullam aliquet suscipit congue. Cras lacinia lacus eu 
-                                    arcu suscipit aliquet.
-                                </Paragraph>
-                            }
-                        </ImageContainer>
+                                <Link to={`/hotels/${cities.slug}`}
+                                    className="link"
+                                    style = {{width : "100%"}}>
+                                    <Image src={`${cities.name === "Paris" ? Images : `https://trippy-konexio.herokuapp.com/${cities.source}`}`}
+                                        alt={cities.name} 
+                                        className={`city`}
+                                    />
+                                </Link>
+                                
+                                <CityName className={`cities_element ${cities.name === "Paris"? "paris_element" : ""}`}>
+                                    {cities.name}
+                                </CityName>
+                                <AllParagraph className={`cities_element ${cities.name === "Paris"? "_paris" : ""}`}>
+                                    <Paragraph>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                                        Vivamus rutrum in purus eget consequat. 
+                                        Nullam aliquet suscipit congue. Cras lacinia lacus eu 
+                                        arcu suscipit aliquet.
+                                    </Paragraph>
+                                    {cities.name === "Paris" &&
+                                    <Paragraph>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                            Vivamus rutrum in purus eget consequat. 
+                                            Nullam aliquet suscipit congue. Cras lacinia lacus eu 
+                                            arcu suscipit aliquet.
+                                    </Paragraph>
+                                    }
+                                </AllParagraph>
+                            </ImageContainer>
                 })}
             </CityContainer>
 

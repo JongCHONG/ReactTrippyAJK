@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 
 import styled from "styled-components"
+import { useParams } from "react-router"
 
 import ButtonPage from "../components/ButtonPage"
 import HotelMap from "../components/HotelMap"
@@ -11,7 +12,7 @@ const SectionListHotel = styled.div`
   display:flex;
 `
 const DivLeft = styled.div`
-  width: 600px;
+  width: 640px;
   margin: 10px 0;
   padding: 10px;
   display: flex;
@@ -34,13 +35,15 @@ const ImageHotelMiniature = styled.div`
   background-repeat: none;
 `
 
-const Hotels = () => {
+const Hotels = (props) => {
+  const { city } = useParams();
+  console.log("city",city)
   const [listHotel, setlistHotel] = useState(null)
   const [page, setPage] = useState(1)
   let numPage = []
 
   useEffect(() => {
-    fetch(`https://trippy-konexio.herokuapp.com/api/hotels/city/paris?page=${page}`)
+    fetch(`https://trippy-konexio.herokuapp.com/api/hotels/city/${city ? city : "paris"}?page=${page}`)
     .then(response => response.json())
     .then(data => setlistHotel(data))
   }, [page])

@@ -9,6 +9,10 @@ const NavBarLi = styled.li`
   list-style: none;  
   margin: 0px 15px;
   font-size : 25px;
+  font-weight : bold;
+  // &:hover{
+  //   font-size : 25.5px;
+  // }
 `
 
 const Nav = () => {
@@ -21,7 +25,7 @@ const Nav = () => {
           </Link>     
         </NavBarLi>
         <NavBarLi>
-          <Link to="/hotels" style={{color: "black",textDecoration: "none"}}>
+          <Link to="/hotels/paris" style={{color: "black",textDecoration: "none"}}>
             Hotels
           </Link>
         </NavBarLi>
