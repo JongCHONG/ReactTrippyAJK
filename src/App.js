@@ -6,6 +6,8 @@ import Hotels from "./pages/Hotels"
 import HotelPage from "./pages/HotelPage"
 import NotFound from "./pages/NotFound"
 import Nav from "./components/Nav"
+import Footer from "./components/Footer"
+import GlobalStyle from "./globalStyles"
 
 const Body = styled.div`
   background-color: #D4F5F5;
@@ -32,6 +34,7 @@ const H1 = styled.h1`
 const App = () => {
   return (
     <Body>
+      <GlobalStyle/>
       <div>
         <Container>
           <BrowserRouter>
@@ -41,17 +44,18 @@ const App = () => {
               </H1>
               <Nav />
             </Header>
-
+            
             <Routes>
               <Route exact path="/" element={<Home />} />
               <Route exact path="/hotels/" element={<Hotels />} />
               <Route path="/hotels/:city" element={<Hotels />} />
-              <Route exact path="/hotelpage/" element={<HotelPage />} />
-              <Route path="/hotelpage/:id" element={<HotelPage />} />
+              <Route exact path="/hotel/" element={<HotelPage />} />
+              <Route path="/hotel/:id" element={<HotelPage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>
         </Container>
+        <Footer/>
       </div>
     </Body>
   )

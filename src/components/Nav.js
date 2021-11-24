@@ -9,6 +9,10 @@ const NavBarLi = styled.li`
   list-style: none;  
   margin: 0px 15px;
   font-size : 25px;
+  font-weight : bold;
+  // &:hover{
+  //   font-size : 25.5px;
+  // }
 `
 
 const Nav = () => {

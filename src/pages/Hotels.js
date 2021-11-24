@@ -27,14 +27,14 @@ const ImageHotelMiniature = styled.div`
 `
 
 const Hotels = (props) => {
-  const {id} = useParams()
-  console.log("location",id);
+  const { city } = useParams();
+  console.log("city",city)
   const [listHotel, setlistHotel] = useState(null)
   const [page, setPage] = useState(1)
   let numPage = []
 
   useEffect(() => {
-    fetch(`https://trippy-konexio.herokuapp.com/api/hotels/city/paris?page=${page}`)
+    fetch(`https://trippy-konexio.herokuapp.com/api/hotels/city/${city}?page=${page}`)
     .then(response => response.json())
     .then(data => setlistHotel(data))
   }, [page])
@@ -51,7 +51,7 @@ const Hotels = (props) => {
     setPage(element)
   }
 
-  // console.log(page)
+  
   return (
       <DivLeft>
         {listHotel.results.map(element => (
