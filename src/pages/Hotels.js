@@ -1,21 +1,30 @@
 import { useEffect, useState } from "react"
 
 import styled from "styled-components"
+import { useParams } from "react-router"
 
 import ButtonPage from "../components/ButtonPage"
-import { useParams } from "react-router-dom";
+import HotelMap from "../components/HotelMap"
 
 // import { GetHotel } from "../utils/fetchAPI"
 
-
+const SectionListHotel = styled.div`
+  display:flex;
+`
 const DivLeft = styled.div`
-  width: 600px;
+  width: 640px;
+  margin: 10px 0;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+`
+const DivRight = styled.div`
+  width: 700px;
   margin: 10px 0;
   padding: 10px;
 `
 const HotelMiniature = styled.div`
   width: 280px;
-  float: left;
   margin: 0 10px;
 `
 const ImageHotelMiniature = styled.div`
@@ -51,28 +60,30 @@ const Hotels = (props) => {
     setPage(element)
   }
 
-  
+  // console.log(listHotel.center)
   return (
-      <DivLeft>
-        {listHotel.results.map(element => (
-              <HotelMiniature key={element._id}>  
-                <ImageHotelMiniature style={{ backgroundImage: `url('https://trippy-konexio.herokuapp.com/img/hotels/${element.tripAdvisorId}_1.jpg')`}}/>
-                <p>{element.name}</p>
-                <p>{element.price + "€"}
-                {element.stars}
-                </p>
-              </HotelMiniature>
-        ))}
-        {numPage.map((element,index) => (
-          <ButtonPage 
-            numPage={element} 
-            onClick={() => handleOnClick(element)}
-            key={index}
-          />
-        ))}
-        
+    <>
+      <SectionListHotel>
+        <DivLeft>
+          {listHotel.results.map(element => (
+                <HotelMiniature key={element._id}>  
+                  <ImageHotelMiniature style={{ backgroundImage: `url('https://trippy-konexio.herokuapp.com/img/hotels/${element.tripAdvisorId}_1.jpg')`}}/>
+                  <p>{element.name}</p>
+                  <p>{element.price + "€"}
+                  {element.stars}
+                  </p>
+                </HotelMiniature>
+          ))}
+          {numPage.map(element => (
+            <ButtonPage numPage={element} onClick={() => handleOnClick(element)}/>
+          ))}
+        </DivLeft>
+        <DivRight>
+          <HotelMap listHotel={listHotel}/>
+        </DivRight>
 
-      </DivLeft>
+      </SectionListHotel>
+    </>
   )
 }
 
