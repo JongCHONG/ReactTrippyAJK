@@ -1,18 +1,62 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
 import styled from "styled-components"
+import Images from "../Images/Paris_img.jpg"
 const CityContainer = styled.div`
     display : flex;
+    justify-content : center;
     flex-wrap : wrap;
     width: 100%;
 `
 const ImageContainer = styled.div`
     width : 300px;
-    margin-left : 20px;
+    border-radius : 20px;
+    // background-color : red;
+    margin : 20px 40px 20px 20px ;
+    // height : 500px;
+        &:first-child {
+            width : 100% !important;
+            margin : 0;
+            margin-bottom : 20px;
+            display : flex;
+            flex-direction: column;
+            align-items : center;
+            position : relative;
+        }
+
 `
 const Image = styled.img`
     width : 100%;
-    height: 400px;
+    height: 300px;
+    // border-radius : 20px ;
+    object-fit: fill;
+    box-shadow: 6px 6px 5px grey;
+    cursor : pointer;
+        &:first-child {
+            width : 100%;
+            height : 450px;
+            // border-radius : none;
+            object-fit: cover;
+            margin-bottom : 20px;
+        }
+`
+const CityName = styled.h2`
+    font-size : 35px;
+    margin : 5px 0 10px 0;
+    color : dark;
+    text-shadow: 2px 2px  black;
+        &.paris_element{
+            position : absolute;
+            top : 150px;
+            left: 20%;
+            font-size : 70px;
+            text-shadow: 3px 3px black;
+            color : #ffff;
+        }
+`
+const Paragraph = styled.p`
+    margin :0;
+    font-weight : bold;
 `
 
 export default function CityCard() {
@@ -28,20 +72,36 @@ export default function CityCard() {
         return null
     }
     return (
-        <CityContainer>
-            <h1>City card</h1>
-            {city.map((cities) => {
-                return <ImageContainer 
-                            key={cities.name}
-                            className={`cities_element ${cities.name === "Paris"? "paris_element" : ""}`}>
-                            <Image src={`https://trippy-konexio.herokuapp.com/${cities.source}`}
-                                alt={cities.name} 
-                                className={`city`}
+            <CityContainer>
+                {city.map((cities) => {
+                    return <ImageContainer 
+                                key={cities.name}
+                                
                             >
-                            </Image>
-                        <h2>{cities.name}</h2>
-                    </ImageContainer>
-            })}
-        </CityContainer>
+                                <Image src={`${cities.name === "Paris" ? Images : `https://trippy-konexio.herokuapp.com/${cities.source}`}`}
+                                    alt={cities.name} 
+                                    className={`city`}
+                                />
+                            <CityName className={`cities_element ${cities.name === "Paris"? "paris_element" : ""}`}>
+                                {cities.name}
+                            </CityName>
+                            <Paragraph>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                                Vivamus rutrum in purus eget consequat. 
+                                Nullam aliquet suscipit congue. Cras lacinia lacus eu 
+                                arcu suscipit aliquet.
+                            </Paragraph>
+                            {cities.name === "Paris" &&
+                                <Paragraph>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                     Vivamus rutrum in purus eget consequat. 
+                                    Nullam aliquet suscipit congue. Cras lacinia lacus eu 
+                                    arcu suscipit aliquet.
+                                </Paragraph>
+                            }
+                        </ImageContainer>
+                })}
+            </CityContainer>
+
     )
 }
