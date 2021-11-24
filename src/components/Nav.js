@@ -25,7 +25,7 @@ const Nav = () => {
           </Link>     
         </NavBarLi>
         <NavBarLi>
-          <Link to="/hotels" style={{color: "black",textDecoration: "none"}}>
+          <Link to="/hotels/paris" style={{color: "black",textDecoration: "none"}}>
             Hotels
           </Link>
         </NavBarLi>

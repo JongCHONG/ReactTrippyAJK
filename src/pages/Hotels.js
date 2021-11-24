@@ -34,7 +34,7 @@ const Hotels = (props) => {
   let numPage = []
 
   useEffect(() => {
-    fetch(`https://trippy-konexio.herokuapp.com/api/hotels/city/${city}?page=${page}`)
+    fetch(`https://trippy-konexio.herokuapp.com/api/hotels/city/${city ? city : "paris"}?page=${page}`)
     .then(response => response.json())
     .then(data => setlistHotel(data))
   }, [page])
