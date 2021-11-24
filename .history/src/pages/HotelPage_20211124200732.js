@@ -1,7 +1,7 @@
 const HotelPage = () => {
   return (
     <>
-     HOTEL HIIIIIIIIIII
+     HOTEL HIIIIIIIIIIi
     </>
   )
 }
