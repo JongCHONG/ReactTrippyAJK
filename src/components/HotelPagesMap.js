@@ -15,19 +15,19 @@ export default function HotelPagesMap(props) {
     const {hotelElement} = props
     useEffect(() => {
         setCenterLocation({
-            lat: hotelElement.location.lat,
-            lng: hotelElement.location.lon
+            lat: hotelElement.lat,
+            lng: hotelElement.lon
         })
-    },[])
-            if(!hotelElement){
-                return <h1>error, there is no pictures</h1>
-            }
-            console.log("map",hotelElement.location);
+    },[hotelElement])
+    if(!hotelElement){
+        return <h1>error, there is no pictures</h1>
+    }
+    console.log("map",hotelElement);
 
     return (
         <div>
-            <h1>lat : {hotelElement.location.lat}</h1>
-            <h1>lon : {hotelElement.location.lon}</h1>
+            <h1>lat : {hotelElement.lat}</h1>
+            <h1>lon : {hotelElement.lon}</h1>
             <MapContainer>
                 <GoogleMapReact
                     bootstrapURLKeys={{ key: "" }}

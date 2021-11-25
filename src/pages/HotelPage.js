@@ -11,10 +11,13 @@ const HotelPage = () => {
         .then(data => setHotelElement(data.result))
     },[id])
     console.log("hotel",hotelElement);
+    if(!hotelElement){
+      return <h1>error, there is no pictures</h1>
+  }
   return (
     <>
       <HotelCard hotelImages = {hotelElement}/>
-      <HotelPagesMap hotelElement = {hotelElement}/>
+      <HotelPagesMap hotelElement = {hotelElement.location}/>
     </>
   )
 }
