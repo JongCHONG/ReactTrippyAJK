@@ -57,6 +57,7 @@ const Hotels = (props) => {
   // console.log("city",city)
   const [listHotel, setlistHotel] = useState(null)
   const [page, setPage] = useState(1)
+  const [selectedHotel, setselectedHotel] = useState(null)
   const titleRef = useRef()
   let numPage = []
 
@@ -77,11 +78,17 @@ const Hotels = (props) => {
   const handleOnClick = (element) => {
     setPage(element)
   }
-  const handleHotelClick = () => {
-    titleRef.current.scrollIntoView({ behavior: 'smooth' })
+  const handleHotelClick = ClickHotel_id => {
+    setselectedHotel(ClickHotel_id)
   }
 
-  console.log(titleRef)
+  // useEffect(() => {
+  //   if (selectedHotel) {
+  //     titleRef.current.scrollIntoView({ behavior: "smooth" })
+  //   }
+  // }, [selectedHotel])
+
+  console.log(listHotel)
   return (
     <>
       <SectionListHotel>
@@ -97,7 +104,7 @@ const Hotels = (props) => {
                   <p>{element.name}</p>
                   <PriceStars>
                     <p>{element.price + "€"}</p>
-                    <p>{element.stars && <Stars numStars={element.stars} />}</p>
+                    <p>{<Stars numStars={element.stars} />}</p>
                   </PriceStars>
                 </HotelMiniature>
               </div>
@@ -110,7 +117,7 @@ const Hotels = (props) => {
           </Buttons>
         </DivLeft>
         <DivRight>
-          <HotelMap listHotel={listHotel} onClick={handleHotelClick}/>
+          <HotelMap listHotel={listHotel} handleHotelClick={handleHotelClick}/>
         </DivRight>
 
       </SectionListHotel>

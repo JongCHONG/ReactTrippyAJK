@@ -19,7 +19,7 @@ const MarkerPrice = styled.div`
 
 const HotelMarker = (props) => {
   const [showInfoWindow, setshowInfoWindow] = useState(false)
-  const { listHotel, id, onClick } = props
+  const { listHotel, id } = props
 
   // const result = listHotel.find(element => console.log(element.id))
   const handleOnMouseEnter = () => {
@@ -33,7 +33,7 @@ const HotelMarker = (props) => {
   return (
     <>
       <MarkerContainer>
-        <MarkerPrice onClick={onClick} onMouseEnter={() => handleOnMouseEnter()} onMouseOut={() => handleOnMouseOut()}>
+        <MarkerPrice onClick={() => props.handleHotelClick(listHotel._id)} onMouseEnter={() => handleOnMouseEnter()} onMouseOut={() => handleOnMouseOut()}>
           {listHotel.price + "€"}
         </MarkerPrice>
       </MarkerContainer>
