@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 
 import GoogleMapReact from 'google-map-react'
-
 import HotelMarker from './HotelMarker'
 import styled from 'styled-components'
 
@@ -12,7 +11,9 @@ const MapContainer = styled.div`
 
 const HotelMap = props => {
   const [centerLocation, setCenterLocation] = useState(null)
-  const { listHotel } = props
+ 
+  const { listHotel, onClick } = props
+  
   useEffect(() => {
     setCenterLocation({
       lat: listHotel.center.lat,
@@ -20,20 +21,7 @@ const HotelMap = props => {
     })
   },[listHotel])
 
-  // useEffect(() => {
-  //   fetch(`https://trippy-konexio.herokuapp.com/api/hotels/city/paris`)
-  //   .then(response => response.json())
-  //   .then(data => setcenterLocation({
-  //     lat: data.center.lat,
-  //     lng: data.center.lon
-  //   }))
-  // }, [])
-
-  // if (!centerLocation) {
-  //   return <p>Chargement...</p>
-  // }
-
-  console.log(listHotel)
+  // console.log(props)
   return (
 
     <MapContainer>
@@ -42,7 +30,16 @@ const HotelMap = props => {
         defaultCenter={centerLocation}
         defaultZoom={listHotel.zoom}
       >
-      
+      {listHotel.results.map((element, index) => 
+        <HotelMarker 
+        key={element._id} 
+        lat={element.location.lat} 
+        lng={element.location.lon} 
+        listHotel={element}
+        id={element._id}
+        onClick={onClick}
+        />
+      )}
       </GoogleMapReact>
     </MapContainer>
   )

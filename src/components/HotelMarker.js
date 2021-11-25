@@ -1,27 +1,44 @@
-import styled from 'styled-components'
+import { useState } from 'react'
 
-import { FaMapMarkerAlt } from 'react-icons/fa'
+import styled from 'styled-components'
+import InfoWindow from './InfoWindow'
+
+// import { FaMapMarkerAlt } from 'react-icons/fa'
 
 const MarkerContainer = styled.div`
   width: 40px;
   height: 40px;
   position: relative;
 `
-const HotelMarker = props => {
+const MarkerPrice = styled.div`
+  height: 20px;
+  background-color: white;
+  border: 1px solid green;
+  padding: 3px 0 0 7px;
+`
+
+const HotelMarker = (props) => {
+  const [showInfoWindow, setshowInfoWindow] = useState(false)
+  const { listHotel, id, onClick } = props
+
+  // const result = listHotel.find(element => console.log(element.id))
+  const handleOnMouseEnter = () => {
+    setshowInfoWindow(true)
+  }
+  const handleOnMouseOut = () => {
+    setshowInfoWindow(false)
+  }
+
+  // console.log(props)
   return (
-    <MarkerContainer>
-      <FaMapMarkerAlt 
-        style={{ 
-          width: '40px', 
-          height: '40px', 
-          color: "red", 
-          position: "absolute", 
-          bottom: '100%', 
-          left: '-20px' 
-        }} 
-      />
-      {props.name}
-    </MarkerContainer>
+    <>
+      <MarkerContainer>
+        <MarkerPrice onClick={onClick} onMouseEnter={() => handleOnMouseEnter()} onMouseOut={() => handleOnMouseOut()}>
+          {listHotel.price + "€"}
+        </MarkerPrice>
+      </MarkerContainer>
+      {showInfoWindow && <InfoWindow hotelName={listHotel.name}/>}
+    </>
   )
 }
 
