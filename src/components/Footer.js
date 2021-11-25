@@ -33,8 +33,8 @@ export default function Footer() {
             {/* <Nav/> */}
             <ListContainer>
                 <ListElements>
-                    <h3>À propos de Tripadvisor</h3>
                     <ul>
+                        <h3>À propos de Tripadvisor</h3>
                         <li>À propos de Tripadvisor</li>
                         <li>Presse</li>
                         <li>Ressources et règlements</li>
@@ -44,8 +44,8 @@ export default function Footer() {
                     </ul>
                 </ListElements>
                 <ListElements>
-                    <h3>Explorez</h3>
                     <ul>
+                        <h3>Explorez</h3>
                         <li>Écrire un avis</li>
                         <li>Ajouter un lieu</li>
                         <li>S'inscrire </li>
@@ -55,8 +55,8 @@ export default function Footer() {
                     </ul>
                 </ListElements>
                 <ListElements>
-                    <h3>Utilisez nos solutions</h3>
                     <ul>
+                        <h3>Utilisez nos solutions</h3>
                         <li>Propriétaires</li>
                         <li>Avantage business</li>
                         <li>Résultats sponsorisés</li>
@@ -65,8 +65,8 @@ export default function Footer() {
                     </ul>
                 </ListElements>
                 <ListElements>
-                    <h3>Télécharger l'appli</h3>
                     <ul>
+                        <h3>Télécharger l'appli</h3>
                         <li>Application iPhone</li>
                         <li>Application Android</li>
                     </ul>

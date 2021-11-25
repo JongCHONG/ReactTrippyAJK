@@ -9,10 +9,9 @@ const MapContainer = styled.div`
   width: 100%;
 `
 
-const HotelMap = props => {
+const HotelMap = (props )=> {
   const [centerLocation, setCenterLocation] = useState(null)
- 
-  const { listHotel, onClick } = props
+  const { listHotel, onClick} = props
   
   useEffect(() => {
     setCenterLocation({
@@ -30,7 +29,7 @@ const HotelMap = props => {
         defaultCenter={centerLocation}
         defaultZoom={listHotel.zoom}
       >
-      {listHotel.results.map((element, index) => 
+      {listHotel.results.map((element) => 
         <HotelMarker 
         key={element._id} 
         lat={element.location.lat} 

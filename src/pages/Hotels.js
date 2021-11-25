@@ -64,7 +64,7 @@ const Hotels = (props) => {
     fetch(`https://trippy-konexio.herokuapp.com/api/hotels/city/${city ? city : "paris"}?page=${page}`)
     .then(response => response.json())
     .then(data => setlistHotel(data))
-  }, [page])
+  }, [page,city])
 
   if (!listHotel) {
     return <p>Pas de Hotel</p>
