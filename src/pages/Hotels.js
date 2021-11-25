@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
 
 import styled from "styled-components"
 import { useParams } from "react-router"
@@ -56,6 +56,7 @@ const Hotels = () => {
   const { city } = useParams()
   const [listHotel, setlistHotel] = useState(null)
   const [page, setPage] = useState(1)
+  const titleRef = useRef()
   let numPage = []
 
   useEffect(() => {
@@ -75,15 +76,19 @@ const Hotels = () => {
   const handleOnClick = (element) => {
     setPage(element)
   }
+  const handleHotelClick = () => {
+    titleRef.current.scrollIntoView({ behavior: 'smooth' })
+  }
 
-  // console.log()
+  console.log(titleRef)
   return (
     <>
       <SectionListHotel>
         <DivLeft>
+            {/* <button onClick={handleHotelClick}>test</button> */}
           <ListHotel>
-
-          {listHotel.results.map(element => (
+            {listHotel.results.map(element => (
+              <div ref={titleRef}>
                 <HotelMiniature key={element._id}>  
                   <ImageHotelMiniature style={{ backgroundImage: `url('https://trippy-konexio.herokuapp.com/img/hotels/${element.tripAdvisorId}_1.jpg')`}}/>
                   <p>{element.name}</p>
@@ -92,7 +97,8 @@ const Hotels = () => {
                     <p>{element.stars && <Stars numStars={element.stars} />}</p>
                   </PriceStars>
                 </HotelMiniature>
-          ))}
+              </div>
+            ))}
           </ListHotel>
           <Buttons>
             {numPage.map(element => (
@@ -101,7 +107,7 @@ const Hotels = () => {
           </Buttons>
         </DivLeft>
         <DivRight>
-          <HotelMap listHotel={listHotel}/>
+          <HotelMap listHotel={listHotel} onClick={handleHotelClick}/>
         </DivRight>
 
       </SectionListHotel>
