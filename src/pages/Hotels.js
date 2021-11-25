@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
 
 import styled from "styled-components"
 import { useParams } from "react-router"
 
 import ButtonPage from "../components/ButtonPage"
 import HotelMap from "../components/HotelMap"
+import Stars from "../components/Stars"
 
 // import { GetHotel } from "../utils/fetchAPI"
 
@@ -13,33 +14,49 @@ const SectionListHotel = styled.div`
 `
 const DivLeft = styled.div`
   width: 640px;
-  margin: 10px 0;
+  margin: 10px auto;
   padding: 10px;
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
+`
+const ListHotel = styled.div`
+  overflow-y: scroll;
+  display: flex;
+  flex-wrap: wrap;
+  height: 1020px;
+  scrollbar-width: thin;
 `
 const DivRight = styled.div`
   width: 700px;
-  margin: 10px 0;
+  margin: 10px auto;
   padding: 10px;
 `
 const HotelMiniature = styled.div`
-  width: 280px;
+  width: 270px;
   margin: 0 10px;
 `
 const ImageHotelMiniature = styled.div`
-  height: 210px;
+  height: 200px;
   background-color: white;
   background-position: center;
   background-size: 100%;
-  background-repeat: none;
+  background-size: cover;
+  background-repeat: no-repeat;
+`
+const Buttons = styled.div`
+  display: block;
+`
+const PriceStars = styled.div`
+  display: flex;
+  justify-content: space-between;
 `
 
-const Hotels = (props) => {
-  const { city } = useParams();
-  console.log("city",city)
+const Hotels = () => {
+  const { city } = useParams()
   const [listHotel, setlistHotel] = useState(null)
   const [page, setPage] = useState(1)
+  const titleRef = useRef()
   let numPage = []
 
   useEffect(() => {
@@ -59,27 +76,38 @@ const Hotels = (props) => {
   const handleOnClick = (element) => {
     setPage(element)
   }
+  const handleHotelClick = () => {
+    titleRef.current.scrollIntoView({ behavior: 'smooth' })
+  }
 
-  // console.log(listHotel.center)
+  console.log(titleRef)
   return (
     <>
       <SectionListHotel>
         <DivLeft>
-          {listHotel.results.map(element => (
+            {/* <button onClick={handleHotelClick}>test</button> */}
+          <ListHotel>
+            {listHotel.results.map(element => (
+              <div ref={titleRef}>
                 <HotelMiniature key={element._id}>  
                   <ImageHotelMiniature style={{ backgroundImage: `url('https://trippy-konexio.herokuapp.com/img/hotels/${element.tripAdvisorId}_1.jpg')`}}/>
                   <p>{element.name}</p>
-                  <p>{element.price + "€"}
-                  {element.stars}
-                  </p>
+                  <PriceStars>
+                    <p>{element.price + "€"}</p>
+                    <p>{element.stars && <Stars numStars={element.stars} />}</p>
+                  </PriceStars>
                 </HotelMiniature>
-          ))}
-          {numPage.map(element => (
-            <ButtonPage numPage={element} onClick={() => handleOnClick(element)}/>
-          ))}
+              </div>
+            ))}
+          </ListHotel>
+          <Buttons>
+            {numPage.map(element => (
+              <ButtonPage numPage={element} onClick={() => handleOnClick(element)}/>
+            ))}
+          </Buttons>
         </DivLeft>
         <DivRight>
-          <HotelMap listHotel={listHotel}/>
+          <HotelMap listHotel={listHotel} onClick={handleHotelClick}/>
         </DivRight>
 
       </SectionListHotel>
