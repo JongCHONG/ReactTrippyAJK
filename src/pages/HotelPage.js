@@ -19,7 +19,7 @@ const HotelPage = () => {
       .then(data => sethotelRooms(data))
   },[id])
 
-  console.log("hotel rooms",hotelRooms);
+  console.log("hotel/page/rooms",hotelRooms);
   return (
     <>
     HotelPage
