@@ -87,7 +87,7 @@ const Hotels = () => {
   //   }
   // }, [selectedHotel])
 
-  console.log(selectedHotel)
+  console.log(listHotel)
   return (
     <>
       <SectionListHotel>
