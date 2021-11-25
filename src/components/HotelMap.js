@@ -12,7 +12,7 @@ const MapContainer = styled.div`
 const HotelMap = props => {
   const [centerLocation, setCenterLocation] = useState(null)
  
-  const { listHotel, onClick } = props
+  const { listHotel, handleHotelClick } = props
   
   useEffect(() => {
     setCenterLocation({
@@ -37,7 +37,7 @@ const HotelMap = props => {
         lng={element.location.lon} 
         listHotel={element}
         id={element._id}
-        onClick={onClick}
+        handleHotelClick={handleHotelClick}
         />
       )}
       </GoogleMapReact>
