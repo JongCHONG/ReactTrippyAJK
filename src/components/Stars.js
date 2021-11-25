@@ -14,7 +14,7 @@ const Stars = (props) => {
     }
   }
 
-  console.log(arrayStars)
+  // console.log(arrayStars)
   return(
     <>
     {arrayStars.map(element => element !== 0 ? <RiStarSFill /> : <RiStarSLine /> )}
