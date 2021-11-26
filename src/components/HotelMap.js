@@ -5,11 +5,11 @@ import HotelMarker from './HotelMarker'
 import styled from 'styled-components'
 
 const MapContainer = styled.div`
-  height: 100vh;
+  height: 90vh;
   width: 100%;
 `
 
-const HotelMap = props => {
+const HotelMap = (props )=> {
   const [centerLocation, setCenterLocation] = useState(null)
  
   const { listHotel, handleHotelClick } = props
@@ -30,7 +30,7 @@ const HotelMap = props => {
         defaultCenter={centerLocation}
         defaultZoom={listHotel.zoom}
       >
-      {listHotel.results.map((element, index) => 
+      {listHotel.results.map((element) => 
         <HotelMarker 
         key={element._id} 
         lat={element.location.lat} 

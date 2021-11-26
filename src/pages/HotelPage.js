@@ -1,31 +1,44 @@
-import HotelCard from "../components/HotelCard"
-import HotelRooms from "../components/HotelRooms"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router"
 
+import styled from "styled-components"
+
+import HotelPagesMap from "../components/HotelPagesMap"
+import HotelCard from "../components/HotelCard"
+import HotelRooms from "../components/HotelRooms"
+
+const Container = styled.div`
+  
+`
 const HotelPage = () => {
   const { id } = useParams();
-  const [hotelImages, setHotelImages] = useState()
   const [hotelRooms, sethotelRooms] = useState()
+  const [hotelElement, setHotelElement] = useState()
 
   useEffect(() => {
       fetch(`https://trippy-konexio.herokuapp.com/api/hotels/${id}`)
       .then(response => response.json())
-      .then(data => setHotelImages(data.result))
+      .then(data => setHotelElement(data.result))
   },[id])
   useEffect(() => {
-      fetch(`https://trippy-konexio.herokuapp.com/api/hotels/${id}/rooms`)
-      .then(response => response.json())
-      .then(data => sethotelRooms(data))
+    fetch(`https://trippy-konexio.herokuapp.com/api/hotels/${id}/rooms`)
+    .then(response => response.json())
+    .then(data => sethotelRooms(data))
   },[id])
 
-  console.log("hotel/page/rooms",hotelRooms);
+  if(!(hotelElement && hotelRooms)){
+    return <h1>Chargement</h1>
+  }
+
+  // console.log("hotel/page/rooms", hotelRooms)
   return (
     <>
-    HotelPage
-    <HotelCard hotelImages = {hotelImages}/>  
+      <Container>
+        <HotelCard hotelImages = {hotelElement}/>
+        <HotelPagesMap hotelElement = {hotelElement.location}/>
+        <HotelRooms hotelRooms = {hotelRooms}/>
+      </Container> 
     </>
   )
 }
-
 export default HotelPage
