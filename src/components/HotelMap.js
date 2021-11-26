@@ -5,7 +5,7 @@ import HotelMarker from './HotelMarker'
 import styled from 'styled-components'
 
 const MapContainer = styled.div`
-  height: 100vh;
+  height: 90vh;
   width: 100%;
 `
 

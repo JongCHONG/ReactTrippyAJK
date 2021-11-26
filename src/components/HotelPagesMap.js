@@ -6,9 +6,14 @@ import GoogleMapReact from 'google-map-react'
 import styled from 'styled-components'
 
 const MapContainer = styled.div`
-  height: 60vh;
-  width: 40%;
+  height: 80vh;
+  width: 80%;
 `
+const Container = styled.div`
+    display : flex;
+    justify-content : center;
+`
+
 
 export default function HotelPagesMap(props) {
     const [centerLocation, setCenterLocation] = useState(null)
@@ -25,17 +30,15 @@ export default function HotelPagesMap(props) {
     console.log("map",hotelElement);
 
     return (
-        <div>
-            <h1>lat : {hotelElement.lat}</h1>
-            <h1>lon : {hotelElement.lon}</h1>
+        <Container>
             <MapContainer>
                 <GoogleMapReact
                     bootstrapURLKeys={{ key: "" }}
                     defaultCenter={centerLocation}
-                    defaultZoom={12}
+                    defaultZoom={16}
                 >
                 </GoogleMapReact>
             </MapContainer>
-        </div>
+        </Container>
     )
 }

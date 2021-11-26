@@ -2,6 +2,11 @@ import HotelCard from "../components/HotelCard"
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import HotelPagesMap from "../components/HotelPagesMap";
+import styled from "styled-components";
+
+const Container = styled.div`
+  
+`
 const HotelPage = () => {
   const { id } = useParams();
   const [hotelElement, setHotelElement] = useState()
@@ -15,10 +20,10 @@ const HotelPage = () => {
       return <h1>error, there is no pictures</h1>
   }
   return (
-    <>
+    <Container>
       <HotelCard hotelImages = {hotelElement}/>
       <HotelPagesMap hotelElement = {hotelElement.location}/>
-    </>
+    </Container>
   )
 }
 
