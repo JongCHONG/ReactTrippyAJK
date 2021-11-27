@@ -4,7 +4,7 @@ import styled from "styled-components"
 import Home from "./pages/Home"
 import Hotels from "./pages/Hotels"
 import HotelPage from "./pages/HotelPage"
- 
+import LoginPage from "./pages/LoginPage"
 import NotFound from "./pages/NotFound"
 import Nav from "./components/Nav"
 import Footer from "./components/Footer"

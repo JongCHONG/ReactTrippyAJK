@@ -13,11 +13,6 @@ function Login() {
  const Login = delails => {
      console.log(delails)
  }
-
-
- const Logout = () => {
-     
- }
  
 
      return (

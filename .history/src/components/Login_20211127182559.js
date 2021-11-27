@@ -11,11 +11,6 @@ function Login() {
  const [error, setError] = useState("")
  
  const Login = delails => {
-     console.log(delails)
- }
-
-
- const Logout = () => {
      
  }
  
