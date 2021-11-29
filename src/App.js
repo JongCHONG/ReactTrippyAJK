@@ -51,7 +51,6 @@ const App = () => {
               <Route exact path="/hotels/paris/" element={<Hotels />} />
               <Route path="/hotels/:city" element={<Hotels />} />
               <Route exact path="/hotelpage/" element={<HotelPage />} />
-              <Route exact path="/loginForm/" element={<LoginForm/>} />
               <Route path="/hotel/:id" element={<HotelPage />} />
               <Route path="/favoris" element={<Favoris/>}/>
               <Route path="*" element={<NotFound />} />
