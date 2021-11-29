@@ -11,7 +11,7 @@ const Container = styled.div`
   
 `
 const HotelPage = () => {
-  const { id } = useParams();
+  const { id } = useParams()
   const [hotelRooms, sethotelRooms] = useState()
   const [hotelElement, setHotelElement] = useState()
 

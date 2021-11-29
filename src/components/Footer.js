@@ -74,9 +74,9 @@ export default function Footer() {
                 </ListElements>
             </ListContainer>
            <LogoContainer>
-                <i class="fab fa-facebook icon" style={{fontSize : "40px"}}></i>
-                <i class="fab fa-instagram icon" style={{fontSize : "40px"}}></i>
-                <i class="fab fa-twitter-square icon" style={{fontSize : "40px"}}></i>
+                <i className="fab fa-facebook icon" style={{fontSize : "40px"}}></i>
+                <i className="fab fa-instagram icon" style={{fontSize : "40px"}}></i>
+                <i className="fab fa-twitter-square icon" style={{fontSize : "40px"}}></i>
            </LogoContainer>
         </PageFooter>
     )

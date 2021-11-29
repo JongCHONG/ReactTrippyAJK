@@ -12,7 +12,6 @@ import GlobalStyle from "./globalStyles"
 const Body = styled.div`
   background-color: #D4F5F5;
   color: #554348
-  color: #554348;
 `
 const Container = styled.div`
   width: 100%;

@@ -136,7 +136,7 @@ const Hotels = (props) => {
           </ListHotel>
           <Buttons>
             {numPage.map(element => (
-              <ButtonPage numPage={element} onClick={() => handleOnClick(element)}/>
+              <ButtonPage key={element} numPage={element} onClick={() => handleOnClick(element)}/>
             ))}
           </Buttons>
         </DivLeft>
