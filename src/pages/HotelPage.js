@@ -15,7 +15,7 @@ const HotelPage = () => {
         .then(response => response.json())
         .then(data => setHotelElement(data.result))
     },[id])
-    console.log("hotel",hotelElement);
+    // console.log("hotel",hotelElement);
     if(!hotelElement){
       return <h1>error, there is no pictures</h1>
   }

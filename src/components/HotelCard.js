@@ -19,14 +19,24 @@ const Slider = styled.div`
 `
 const ArrowLeft = styled.div`
     position : absolute;
+    left : 0;
+    background : #fff;
+    border-top-right-radius : 20px;
+    border-bottom-right-radius : 20px;
 `
 const Image = styled.img`
-    border-radius: 20px;
+    // border-bottom-left-radius: 20px;
+    // border-bottom-right-radius: 20px;
     height : 500px;
     width : 100%;
+    box-shadow: 6px 6px 5px grey;
 `
 const ArrowRight = styled.div`
     position : absolute;
+    right : 0;
+    background : #fff;
+    border-top-left-radius : 20px;
+    border-bottom-left-radius : 20px;
 `
 const Location = styled.div`
     display : flex;
@@ -46,7 +56,7 @@ const About = styled.div`
     padding-bottom:20px;
 `
 const PriceButton = styled.button`
-    padding: 3px 10px;
+    padding: 7px 20px;
     border-radius: 20px;
     background : blue;
 `
@@ -59,7 +69,7 @@ const Commodities = styled.div`
 `
 export default function HotelCard(props) {
 
-    const [imageindex, setImageindex] = useState(1)
+    const [imageindex, setImageindex] = useState(11)
     const arrowDirectionClick =(arrowDirection) => {
         const index = arrowDirection === "arrowRight"? 1 : -1;
         if(imageindex > 0){
@@ -82,15 +92,15 @@ export default function HotelCard(props) {
             <Slider>
                 <ArrowLeft>
                     <AiOutlineArrowLeft 
-                        style={{fontSize : "34px"}}
+                        style={{fontSize : "40px"}}
                         onClick={() => arrowDirectionClick("arrowLeft")}
                         
                     />
                 </ArrowLeft>
-                <Image src={HotelImage.room[imageindex]}/>
+                <Image src={`https://picsum.photos/id/${imageindex}/0/0`}/>
                 <ArrowRight>
                     <AiOutlineArrowRight 
-                        style={{fontSize : "34px"}}
+                        style={{fontSize : "40px"}}
                         onClick={() => arrowDirectionClick("arrowRight")}
                     />
                 </ArrowRight>
@@ -98,12 +108,12 @@ export default function HotelCard(props) {
             
             <HotelInfos>
                 <About>
-                    <h2>{props.hotelImages.name}</h2>
+                    <h1>{props.hotelImages.name}</h1>
                     <Location><strong>Address:</strong> {props.hotelImages.address}</Location>
                     <div><strong>Phone:</strong> {props.hotelImages.phone}</div>
                     <div><strong>Email:</strong> {props.hotelImages.email}</div>
                     <div><strong>created in</strong> {props.hotelImages.created}</div>
-                    <h3><strong>Price:</strong> :{props.hotelImages.price}€</h3>
+                    <h2><strong>Price :</strong> {props.hotelImages.price}€</h2>
                     <PriceButton>
                         <a 
                             href={props.hotelImages.website}
@@ -115,7 +125,7 @@ export default function HotelCard(props) {
                     </PriceButton>
                 </About>
                 <div>
-                    <h1 style={{textDecoration : "underline"}}>Commodities</h1>
+                    <h1>Commodities</h1>
                     <Commodities>
                     {props.hotelImages.commodities.map((commoditie,index) => {
                         return <p key={index}>{commoditie}</p>

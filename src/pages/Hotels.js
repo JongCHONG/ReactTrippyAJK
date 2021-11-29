@@ -65,6 +65,11 @@ const ImageDesrcription = styled.div`
   padding : 0px 4% 5px 4%;
   bottom : 0
 `
+const ImageTitle = styled.div`
+  display : flex;
+  align-items : baseline;
+  justify-content : space-between
+`
 const Buttons = styled.div`
   display: block;
 `
@@ -110,7 +115,18 @@ const Hotels = (props) => {
   // }, [selectedHotel])
 
   // console.log(listHotel)
-  console.log("hotel",city);
+  const onclickPicture = (index) => {
+    // console.log("index",index);
+    let indexArray = [] 
+    if(localStorage.getItem("indexs")){
+      indexArray = JSON.parse(localStorage.getItem("indexs"))
+      indexArray.push(index)
+    } else {
+      indexArray.push(index)
+    }
+    localStorage.setItem("indexs",JSON.stringify(indexArray)) 
+  }
+  // console.log("hotel",city);
   return (
     <>
       <SectionListHotel>
@@ -121,10 +137,19 @@ const Hotels = (props) => {
               <div ref={titleRef}>
                 <HotelMiniature key={element._id}>  
                   <Link to= {`/hotel/${element._id}`}>
-                    <ImageHotelMiniature src={HotelImage.entrance[index]}/>
+                    <ImageHotelMiniature
+                      src={HotelImage.entrance[index]}
+                    />
                   </Link>
                   <ImageDesrcription>
-                    <h4>{element.name}</h4>
+                    <ImageTitle>
+                      <h4>{element.name}</h4>
+                      <i class="far fa-heart"
+                      style={{fontSize : "25px"}}
+                      onClick = {() => onclickPicture (element._id)}
+                      >
+                      </i>
+                    </ImageTitle>
                     <PriceStars>
                       <p>{element.price + "€"}</p>
                       <p>{<Stars numStars={element.stars} />}</p>

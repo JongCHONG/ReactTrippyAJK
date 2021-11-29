@@ -7,6 +7,7 @@ import HotelPage from "./pages/HotelPage"
 import NotFound from "./pages/NotFound"
 import Nav from "./components/Nav"
 import Footer from "./components/Footer"
+import Favoris from "./pages/Favoris"
 import GlobalStyle from "./globalStyles"
 
 const Body = styled.div`
@@ -50,6 +51,7 @@ const App = () => {
               <Route path="/hotels/:city" element={<Hotels />} />
               <Route exact path="/hotelpage/" element={<HotelPage />} />
               <Route path="/hotel/:id" element={<HotelPage />} />
+              <Route path="/favoris" element={<Favoris/>}/>
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>
