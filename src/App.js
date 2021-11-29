@@ -10,7 +10,6 @@ import Nav from "./components/Nav"
 import Footer from "./components/Footer"
 import Favoris from "./pages/Favoris"
 import GlobalStyle from "./globalStyles"
-import LoginForm from "./components/LoginForm"
 
 const Body = styled.div`
   background-color: #D4F5F5;
