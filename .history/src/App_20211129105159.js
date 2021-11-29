@@ -2,13 +2,15 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import styled from "styled-components"
 
 import Home from "./pages/Home"
-import Hotels from "./pages/Hotels"
+// import Hotels from "./pages/Hotels"
 import HotelPage from "./pages/HotelPage"
+ 
 import NotFound from "./pages/NotFound"
 import Login from "./components/Login"
 import Nav from "./components/Nav"
 import Footer from "./components/Footer"
 import GlobalStyle from "./globalStyles"
+ 
 
 const Body = styled.div`
   background-color: #D4F5F5;
@@ -47,8 +49,8 @@ const App = () => {
             
             <Routes>
               <Route exact path="/" element={<Home />} />
-              <Route exact path="/hotels/paris/" element={<Hotels />} />
-              <Route path="/hotels/:city" element={<Hotels />} />
+              {/* <Route exact path="/hotels/paris/" element={<Hotels />} /> */}
+              {/* <Route path="/hotels/:city" element={<Hotels />} /> */}
               <Route exact path="/hotelpage/" element={<HotelPage />} />
               <Route exact path="/login/" element={<Login/>} />
               <Route path="/hotel/:id" element={<HotelPage />} />

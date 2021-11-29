@@ -9,7 +9,6 @@ const PageFooter = styled.footer`
     justify-content: center;
     background-color:#ABE7E7;
     padding-top : 20px;
-    margin-top : 40px;
 `
 const ListContainer= styled.div`
     display : flex;

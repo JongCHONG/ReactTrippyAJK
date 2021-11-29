@@ -2,13 +2,15 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import styled from "styled-components"
 
 import Home from "./pages/Home"
-import Hotels from "./pages/Hotels"
+// import Hotels from "./pages/Hotels"
 import HotelPage from "./pages/HotelPage"
+ 
 import NotFound from "./pages/NotFound"
 import Login from "./components/Login"
 import Nav from "./components/Nav"
 import Footer from "./components/Footer"
 import GlobalStyle from "./globalStyles"
+ 
 
 const Body = styled.div`
   background-color: #D4F5F5;
