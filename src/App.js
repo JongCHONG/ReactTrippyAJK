@@ -10,7 +10,7 @@ import Nav from "./components/Nav"
 import Footer from "./components/Footer"
 import Favoris from "./pages/Favoris"
 import GlobalStyle from "./globalStyles"
-import Login from "./components/Login"
+import LoginForm from "./components/LoginForm"
 
 const Body = styled.div`
   background-color: #D4F5F5;
@@ -51,7 +51,7 @@ const App = () => {
               <Route exact path="/hotels/paris/" element={<Hotels />} />
               <Route path="/hotels/:city" element={<Hotels />} />
               <Route exact path="/hotelpage/" element={<HotelPage />} />
-              <Route exact path="/login/" element={<Login/>} />
+              <Route exact path="/loginForm/" element={<LoginForm/>} />
               <Route path="/hotel/:id" element={<HotelPage />} />
               <Route path="/favoris" element={<Favoris/>}/>
               <Route path="*" element={<NotFound />} />
