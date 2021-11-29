@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 import styled from 'styled-components'
 import InfoWindow from './InfoWindow'
@@ -19,7 +19,8 @@ const MarkerPrice = styled.div`
 
 const HotelMarker = (props) => {
   const [showInfoWindow, setshowInfoWindow] = useState(false)
-  const { listHotel } = props
+  const { listHotel, selectedHotel } = props
+  // const ref = useRef()
 
   // const result = listHotel.find(element => console.log(element.id))
   const handleOnMouseEnter = () => {
@@ -29,7 +30,13 @@ const HotelMarker = (props) => {
     setshowInfoWindow(false)
   }
 
-  // console.log(props)
+  // useEffect(() => {
+  //   if (listHotel._id === selectedHotel) {
+  //     ref.current.scrollIntoView({ behavior: "smooth" })
+  //   }
+  // }, [selectedHotel])
+
+  console.log(listHotel)
   return (
     <>
       <MarkerContainer>
