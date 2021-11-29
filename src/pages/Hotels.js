@@ -1,5 +1,6 @@
-import { useEffect, useState, useRef } from "react"
+import { useEffect, useState, useRef, useContext } from "react"
 
+import { IdContext } from '../contexts/Id'
 import styled from "styled-components"
 import { useParams } from "react-router"
 import { Link } from "react-router-dom"
@@ -86,6 +87,7 @@ const Hotels = (props) => {
   const [page, setPage] = useState(1)
   const [selectedHotel, setselectedHotel] = useState(null)
   const titleRef = useRef()
+  const { Id } = useContext(IdContext)
   let numPage = [];
   let indexArray = [] 
 
@@ -110,12 +112,14 @@ const Hotels = (props) => {
     setselectedHotel(ClickHotel_id)
   }
   // useEffect(() => {
-  //   if (selectedHotel) {
+  //   if (Id === selectedHotel) {
   //     titleRef.current.scrollIntoView({ behavior: "smooth" })
   //   }
-  // }, [selectedHotel])
-
-  // console.log(listHotel)
+  // }, [selectedHotel, Id])
+  // if (!selectedHotel) {
+  //   return null
+  // }
+  console.log("hotels", Id)
   const onclickPicture = (index) => {
     // console.log("index",index);
     if(localStorage.getItem("indexs")){
@@ -134,7 +138,7 @@ const Hotels = (props) => {
           <ListHotel>
             {listHotel.results.map((element, index) => (
               <div ref={titleRef}>
-                <HotelMiniature key={element._id}>  
+                <HotelMiniature key={element._id} >  
                   <Link to= {`/hotel/${element._id}`}>
                     <ImageHotelMiniature
                       src={HotelImage.entrance[index]}

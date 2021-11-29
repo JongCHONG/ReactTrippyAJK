@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import styled from "styled-components"
-import { RefContextProvider } from "./contexts/Ref"
+import { IdContextProvider } from "./contexts/Id"
 
 import Home from "./pages/Home"
 import Hotels from "./pages/Hotels"
@@ -38,7 +38,7 @@ const App = () => {
       <GlobalStyle/>
       <div>
         <Container>
-          <RefContextProvider>
+          <IdContextProvider>
             <BrowserRouter>
               <Header>
                 <H1>
@@ -57,7 +57,7 @@ const App = () => {
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </BrowserRouter>
-          </RefContextProvider>
+          </IdContextProvider>
         </Container>
         <Footer/>
       </div>

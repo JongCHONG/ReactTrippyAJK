@@ -1,5 +1,5 @@
-import { useState, useEffect, useRef } from 'react'
-
+import { useState, useEffect, useRef, useContext } from 'react'
+import { IdContext } from '../contexts/Id'
 import styled from 'styled-components'
 import InfoWindow from './InfoWindow'
 
@@ -20,7 +20,8 @@ const MarkerPrice = styled.div`
 const HotelMarker = (props) => {
   const [showInfoWindow, setshowInfoWindow] = useState(false)
   const { listHotel, selectedHotel } = props
-  const ref = useRef()
+  const { Id, setId } = useContext(IdContext)
+  // const ref = useRef()
 
   // const result = listHotel.find(element => console.log(element.id))
   const handleOnMouseEnter = () => {
@@ -30,17 +31,18 @@ const HotelMarker = (props) => {
     setshowInfoWindow(false)
   }
 
-  useEffect(() => {
-    if (listHotel._id === selectedHotel) {
-      ref.current.scrollIntoView({ behavior: "smooth" })
-    }
-  }, [selectedHotel])
+  // useEffect(() => {
+  //   if (listHotel._id === selectedHotel) {
+  //     ref.current.scrollIntoView({ behavior: "smooth" })
+  //   }
+  // }, [selectedHotel])
 
-  // console.log(listHotel)
+  console.log("hotelmaker", Id)
   return (
     <>
       <MarkerContainer>
-        <MarkerPrice ref={ref} onClick={() => props.handleHotelClick(listHotel._id)} onMouseEnter={() => handleOnMouseEnter()} onMouseOut={() => handleOnMouseOut()}>
+        {/* <MarkerPrice onClick={() => props.handleHotelClick(listHotel._id)} onMouseEnter={() => handleOnMouseEnter()} onMouseLeave={() => handleOnMouseOut()}> */}
+        <MarkerPrice onClick={() => props.handleHotelClick(listHotel._id), () => setId(listHotel._id)}>
           {listHotel.price + "€"}
         </MarkerPrice>
       </MarkerContainer>
