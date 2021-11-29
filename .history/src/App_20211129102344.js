@@ -52,7 +52,7 @@ const App = () => {
               <Route path="/hotels/:city" element={<Hotels />} />
               <Route exact path="/hotelpage/" element={<HotelPage />} />
               <Route exact path="/login/" element={<Login/>} />
-              <Route path="/hotel/:id" element={<HotelPage />} />
+             <Route path="/hotel/:id" element={<HotelPage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>
