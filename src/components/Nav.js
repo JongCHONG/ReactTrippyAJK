@@ -29,6 +29,11 @@ const Nav = () => {
             Hotels
           </Link>
         </NavBarLi>
+        <NavBarLi>
+          <Link to="/favoris" style={{color: "black",textDecoration: "none"}}>
+            Favoris
+          </Link>
+        </NavBarLi>
       </NavbarUl>
     </>
   )

@@ -8,13 +8,13 @@ import HotelPage from "./pages/HotelPage"
 import NotFound from "./pages/NotFound"
 import Nav from "./components/Nav"
 import Footer from "./components/Footer"
+import Favoris from "./pages/Favoris"
 import GlobalStyle from "./globalStyles"
 import Login from "./components/Login"
 
 const Body = styled.div`
   background-color: #D4F5F5;
   color: #554348
-  color: #554348;
 `
 const Container = styled.div`
   width: 100%;
@@ -53,6 +53,7 @@ const App = () => {
               <Route exact path="/hotelpage/" element={<HotelPage />} />
               <Route exact path="/login/" element={<Login/>} />
               <Route path="/hotel/:id" element={<HotelPage />} />
+              <Route path="/favoris" element={<Favoris/>}/>
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>
