@@ -69,7 +69,7 @@ const Commodities = styled.div`
 `
 export default function HotelCard(props) {
 
-    const [imageindex, setImageindex] = useState(11)
+    const [imageindex, setImageindex] = useState(0)
     const arrowDirectionClick =(arrowDirection) => {
         const index = arrowDirection === "arrowRight"? 1 : -1;
         if(imageindex > 0){

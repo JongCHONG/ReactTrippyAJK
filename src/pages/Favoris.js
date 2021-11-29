@@ -60,28 +60,38 @@ const PriceStars = styled.div`
 
 export default function Favoris() {
     const [favorisList, setFavorisList] = useState(null)
-    const favorisId = JSON.parse(localStorage.getItem("indexs"))
+    // const favorisId = JSON.parse(localStorage.getItem("indexs"))
+    const [favorisId, setFavorisId] = useState(JSON.parse(localStorage.getItem("indexs")) || [])
+    let indexArray = [] 
     console.log("favoris id :",favorisId);
-    
     useEffect(() => {
-    //     fetch(`https://trippy-konexio.herokuapp.com/api/hotels/${favorisId.forEach(id => id)}`)
-    //     .then(response => response.json())
-    //     .then(data => setFavorisList(data.results))
-    // }
-        const promiseArray = favorisId.map(id => {
-            return (
-                fetch(`https://trippy-konexio.herokuapp.com/api/hotels/${id}`)
-            )
-        }) 
-        Promise.all(promiseArray)
-            .then(results => Promise.all(results.map(result => result.json())))
-            .then(data => {
-                const result = data.map(element => element.result)
-                setFavorisList(result)
+        if(favorisId) {
+            const promiseArray = favorisId.map(id => {
+                return (
+                    fetch(`https://trippy-konexio.herokuapp.com/api/hotels/${id}`)
+                )
+            }) 
+            Promise.all(promiseArray)
+                .then(results => Promise.all(results.map(result => result.json())))
+                .then(data => {
+                    const result = data.map(element => element.result)
+                    setFavorisList(result)
             })
-    },[])
-    const element = () => {
+        }
+        
+    },[favorisId])
 
+    const onclickRemove = (id) => {
+        if(localStorage.getItem("indexs")){
+            indexArray = JSON.parse(localStorage.getItem("indexs"))
+            const index = indexArray.findIndex(element => {
+                return element === id
+            })
+            console.log("elementId", index);
+            indexArray.splice(index,1)
+         }
+          localStorage.setItem("indexs",JSON.stringify(indexArray))
+          setFavorisId(indexArray)
     }
 
     console.log("favorislist",favorisList);
@@ -102,7 +112,11 @@ export default function Favoris() {
                     <ImageDesrcription>
                         <ImageTitle>
                         <h4>{element.name}</h4>
-                        <i class="far fa-trash-alt" style={{fontSize : "25px"}}></i>
+                        <i 
+                            class="far fa-trash-alt" 
+                            style={{fontSize : "25px"}}
+                            onClick = {() => onclickRemove(element._id)}
+                        ></i>
                         </ImageTitle>
                         <PriceStars>
                         <p>{element.price + "€"}</p>

@@ -86,7 +86,8 @@ const Hotels = (props) => {
   const [page, setPage] = useState(1)
   const [selectedHotel, setselectedHotel] = useState(null)
   const titleRef = useRef()
-  let numPage = []
+  let numPage = [];
+  let indexArray = [] 
 
   useEffect(() => {
     fetch(`https://trippy-konexio.herokuapp.com/api/hotels/city/${city ? city : "paris"}?page=${page}`)
@@ -117,7 +118,6 @@ const Hotels = (props) => {
   // console.log(listHotel)
   const onclickPicture = (index) => {
     // console.log("index",index);
-    let indexArray = [] 
     if(localStorage.getItem("indexs")){
       indexArray = JSON.parse(localStorage.getItem("indexs"))
       indexArray.push(index)
