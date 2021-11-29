@@ -10,7 +10,6 @@ const adminUser = {
 }
 
 
-
 const [user, setUser] =   useState({name: "", email: ""})
 const [error, setError] =  useState("")
 
