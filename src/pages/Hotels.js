@@ -131,7 +131,6 @@ const Hotels = (props) => {
     <>
       <SectionListHotel>
         <DivLeft>
-            {/* <button onClick={handleHotelClick}>test</button> */}
           <ListHotel>
             {listHotel.results.map((element, index) => (
               <div ref={titleRef}>

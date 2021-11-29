@@ -96,7 +96,7 @@ export default function Favoris() {
 
     console.log("favorislist",favorisList);
     
-      if(!favorisList){
+      if(!favorisList || !favorisId){
           return <h1>There is no favoris</h1>
       }
     return (
