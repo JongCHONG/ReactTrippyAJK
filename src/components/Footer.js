@@ -26,7 +26,14 @@ const LogoContainer = styled.div`
     gap : 10%;
     padding : 40px;
 `
-
+const Logo = styled.i`
+    font-size : 40px;
+    cursor : pointer;
+    transition : all ease 0.4s;
+    &:hover {
+        color : blue;
+    }
+`
 
 export default function Footer() {
     return (
@@ -74,9 +81,9 @@ export default function Footer() {
                 </ListElements>
             </ListContainer>
            <LogoContainer>
-                <i className="fab fa-facebook icon" style={{fontSize : "40px"}}></i>
-                <i className="fab fa-instagram icon" style={{fontSize : "40px"}}></i>
-                <i className="fab fa-twitter-square icon" style={{fontSize : "40px"}}></i>
+                <Logo className="fab fa-facebook icon"></Logo>
+                <Logo className="fab fa-instagram icon"></Logo>
+                <Logo className="fab fa-twitter-square icon"></Logo>
            </LogoContainer>
         </PageFooter>
     )

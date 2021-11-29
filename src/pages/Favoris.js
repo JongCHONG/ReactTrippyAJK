@@ -57,6 +57,12 @@ const PriceStars = styled.div`
   justify-content: space-between;
   font-size : 20px;
 `
+const Logo = styled.i`
+    &:hover {
+        color : red;
+        cursor : pointer;
+    }
+`
 
 export default function Favoris() {
     const [favorisList, setFavorisList] = useState(null)
@@ -96,7 +102,7 @@ export default function Favoris() {
 
     console.log("favorislist",favorisList);
     
-      if(!favorisList || !favorisId){
+      if(!favorisList){
           return <h1>There is no favoris</h1>
       }
     return (
@@ -112,11 +118,11 @@ export default function Favoris() {
                     <ImageDesrcription>
                         <ImageTitle>
                         <h4>{element.name}</h4>
-                        <i 
-                            class="far fa-trash-alt" 
+                        <Logo 
+                            className="far fa-trash-alt" 
                             style={{fontSize : "25px"}}
                             onClick = {() => onclickRemove(element._id)}
-                        ></i>
+                        ></Logo>
                         </ImageTitle>
                         <PriceStars>
                         <p>{element.price + "€"}</p>
