@@ -2,12 +2,12 @@ import React, {useState} from 'react'
 import LoginForm from './LoginForm'
 import './Login.css';
 import Home from '../pages/Home';
-
 function Login() {
 const adminUser = {
     email: "konexio@konexio.com",
     password: "12345678"
 }
+
 
 const [user, setUser] =   useState({name: "", email: ""})
 const [error, setError] =  useState("")

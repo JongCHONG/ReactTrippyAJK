@@ -9,7 +9,6 @@ function LoginForm({ Login, error}) {
 
           Login(details)
       }
-
     return (
        <form onSubmit={submitHandler}>
            <div className="form-inner">
@@ -30,7 +29,6 @@ function LoginForm({ Login, error}) {
                
            </div>
            <input type="submit" value="LOGIN" /> 
-           
 
            </div>
        </form>
