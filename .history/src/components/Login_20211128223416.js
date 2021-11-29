@@ -45,8 +45,10 @@ const Logout = () => {
           </div>
        ) : (
            <LoginForm Login={Login} error={error} />
+           {H}
        )}
-{Home}
+       )}
+
         </div>
     )
 }

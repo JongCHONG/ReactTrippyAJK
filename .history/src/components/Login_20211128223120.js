@@ -44,9 +44,9 @@ const Logout = () => {
               <button onClick={Logout}>Logout</button>
           </div>
        ) : (
-           <LoginForm Login={Login} error={error} />
+           <LoginForm Login={Login <Home />} error={error} />
        )}
-{Home}
+
         </div>
     )
 }

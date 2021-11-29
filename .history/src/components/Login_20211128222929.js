@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
 import LoginForm from './LoginForm'
 import './Login.css';
-import Home from '../pages/Home';
 
 function Login() {
 const adminUser = {
@@ -44,9 +43,9 @@ const Logout = () => {
               <button onClick={Logout}>Logout</button>
           </div>
        ) : (
-           <LoginForm Login={Login} error={error} />
+           <LoginForm Login={Login, H} error={error} />
        )}
-{Home}
+
         </div>
     )
 }
