@@ -65,11 +65,6 @@ const ImageDesrcription = styled.div`
   padding : 0px 4% 5px 4%;
   bottom : 0
 `
-const ImageTitle = styled.div`
-  display : flex;
-  align-items : baseline;
-  justify-content : space-between
-`
 const Buttons = styled.div`
   display: block;
 `
@@ -85,9 +80,8 @@ const Hotels = (props) => {
   const [listHotel, setlistHotel] = useState(null)
   const [page, setPage] = useState(1)
   const [selectedHotel, setselectedHotel] = useState(null)
-  const titleRef = useRef()
-  let numPage = [];
-  let indexArray = [] 
+  const ref = useRef()
+  let numPage = []
 
   useEffect(() => {
     fetch(`https://trippy-konexio.herokuapp.com/api/hotels/city/${city ? city : "paris"}?page=${page}`)
@@ -110,45 +104,27 @@ const Hotels = (props) => {
     setselectedHotel(ClickHotel_id)
   }
   // useEffect(() => {
-  //   if (selectedHotel) {
-  //     titleRef.current.scrollIntoView({ behavior: "smooth" })
+  //   if (listHotel._id === selectedHotel) {
+  //     ref.current.scrollIntoView({ behavior: "smooth" })
   //   }
   // }, [selectedHotel])
 
-  // console.log(listHotel)
-  const onclickPicture = (index) => {
-    // console.log("index",index);
-    if(localStorage.getItem("indexs")){
-      indexArray = JSON.parse(localStorage.getItem("indexs"))
-      indexArray.push(index)
-    } else {
-      indexArray.push(index)
-    }
-    localStorage.setItem("indexs",JSON.stringify(indexArray)) 
-  }
+  console.log(listHotel)
   // console.log("hotel",city);
   return (
     <>
       <SectionListHotel>
         <DivLeft>
+            {/* <button onClick={handleHotelClick}>test</button> */}
           <ListHotel>
             {listHotel.results.map((element, index) => (
-              <div ref={titleRef}>
+              <div ref={ref}>
                 <HotelMiniature key={element._id}>  
                   <Link to= {`/hotel/${element._id}`}>
-                    <ImageHotelMiniature
-                      src={HotelImage.entrance[index]}
-                    />
+                    <ImageHotelMiniature src={HotelImage.entrance[index]}/>
                   </Link>
                   <ImageDesrcription>
-                    <ImageTitle>
-                      <h4>{element.name}</h4>
-                      <i class="far fa-heart"
-                      style={{fontSize : "25px"}}
-                      onClick = {() => onclickPicture (element._id)}
-                      >
-                      </i>
-                    </ImageTitle>
+                    <h4>{element.name}</h4>
                     <PriceStars>
                       <p>{element.price + "€"}</p>
                       <p>{<Stars numStars={element.stars} />}</p>
@@ -165,7 +141,7 @@ const Hotels = (props) => {
           </Buttons>
         </DivLeft>
         <DivRight>
-          <HotelMap listHotel={listHotel} handleHotelClick={handleHotelClick}/>
+          <HotelMap listHotel={listHotel} selectedHotel={selectedHotel} handleHotelClick={handleHotelClick}/>
         </DivRight>
 
       </SectionListHotel>
