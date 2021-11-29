@@ -33,11 +33,16 @@ const HotelPage = () => {
   // console.log("hotel/page/rooms", hotelRooms)
   return (
     <>
+<<<<<<< HEAD
+      <HotelCard hotelImages = {hotelElement}/>
+      <HotelPagesMap hotelElement = {hotelElement.location}/>
+=======
       <Container>
         <HotelCard hotelImages = {hotelElement}/>
         <HotelPagesMap hotelElement = {hotelElement.location}/>
         <HotelRooms hotelRooms = {hotelRooms}/>
       </Container> 
+>>>>>>> main
     </>
   )
 }

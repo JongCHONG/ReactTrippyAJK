@@ -22,7 +22,7 @@ export default function HotelPagesMap(props) {
     if(!hotelElement){
         return <h1>error, there is no pictures</h1>
     }
-    console.log("map",hotelElement);
+    // console.log("map",hotelElement);
 
     return (
         <div>
@@ -34,6 +34,11 @@ export default function HotelPagesMap(props) {
                     defaultCenter={centerLocation}
                     defaultZoom={12}
                 >
+                    <i 
+                        class="fas fa-map-marker-alt"
+                        style= {{fontSize : "30px", color : "red"}}
+                    >
+                    </i>
                 </GoogleMapReact>
             </MapContainer>
         </div>

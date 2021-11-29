@@ -87,7 +87,8 @@ export default function HotelCard(props) {
                 <h1>City : {props.hotelImages.city}</h1>
             </Location>
             <Slider>
-                <ArrowLeft>
+                
+                <div>
                     <AiOutlineArrowLeft 
                         style={{fontSize : "40px"}}
                         onClick={() => arrowDirectionClick("arrowLeft")}
@@ -99,7 +100,7 @@ export default function HotelCard(props) {
                         style={{fontSize : "40px"}}
                         onClick={() => arrowDirectionClick("arrowRight")}
                     />
-                </ArrowRight>
+                </div>
             </Slider>
             
             <HotelInfos>

@@ -30,13 +30,13 @@ const Nav = () => {
           </Link>
         </NavBarLi>
         <NavBarLi>
+<<<<<<< HEAD
+          <Link to="/restaurants" style={{color: "black",textDecoration: "none"}}>
+            Restaurants
+=======
           <Link to="/favoris" style={{color: "black",textDecoration: "none"}}>
             Favoris
-          </Link>
-        </NavBarLi>
-        <NavBarLi>
-          <Link to="/login" style={{color: "black",textDecoration: "none"}}>
-            login
+>>>>>>> main
           </Link>
         </NavBarLi>
       </NavbarUl>

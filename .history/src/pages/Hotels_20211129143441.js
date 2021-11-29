@@ -55,7 +55,7 @@ const ImageDesrcription = styled.div`
   position : absolute;
   padding : 0px 4% 5px 4%;
   bottom : 0
-`
+  
 const ImageTitle = styled.div`
   display : flex;
   align-items : baseline;

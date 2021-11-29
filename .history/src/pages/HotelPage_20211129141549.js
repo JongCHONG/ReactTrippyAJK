@@ -5,11 +5,17 @@ import styled from "styled-components"
 
 import HotelPagesMap from "../components/HotelPagesMap"
 import HotelCard from "../components/HotelCard"
+<<<<<<< HEAD
+import { useEffect, useState } from "react";
+import { useParams } from "react-router";
+import HotelPagesMap from "../components/HotelPagesMap";
+=======
 import HotelRooms from "../components/HotelRooms"
 
 const Container = styled.div`
   
 `
+>>>>>>> main
 const HotelPage = () => {
   const { id } = useParams()
   const [hotelRooms, sethotelRooms] = useState()
@@ -33,11 +39,16 @@ const HotelPage = () => {
   // console.log("hotel/page/rooms", hotelRooms)
   return (
     <>
+<<<<<<< HEAD
+      <HotelCard hotelImages = {hotelElement}/>
+      <HotelPagesMap hotelElement = {hotelElement.location}/>
+=======
       <Container>
         <HotelCard hotelImages = {hotelElement}/>
         <HotelPagesMap hotelElement = {hotelElement.location}/>
         <HotelRooms hotelRooms = {hotelRooms}/>
       </Container> 
+>>>>>>> main
     </>
   )
 }

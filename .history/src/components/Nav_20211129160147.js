@@ -33,11 +33,7 @@ const Nav = () => {
           <Link to="/favoris" style={{color: "black",textDecoration: "none"}}>
             Favoris
           </Link>
-        </NavBarLi>
-        <NavBarLi>
-          <Link to="/login" style={{color: "black",textDecoration: "none"}}>
-            login
-          </Link>
+          
         </NavBarLi>
       </NavbarUl>
     </>

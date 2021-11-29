@@ -66,7 +66,12 @@ const Commodities = styled.div`
 `
 export default function HotelCard(props) {
 
+<<<<<<< HEAD
+    const [imageindex, setImageindex] = useState(0)
+    
+=======
     const [imageindex, setImageindex] = useState(11)
+>>>>>>> main
     const arrowDirectionClick =(arrowDirection) => {
         const index = arrowDirection === "arrowRight"? 1 : -1;
         if(imageindex >0){
@@ -87,19 +92,25 @@ export default function HotelCard(props) {
                 <h1>City : {props.hotelImages.city}</h1>
             </Location>
             <Slider>
-                <ArrowLeft>
+                <div>
                     <AiOutlineArrowLeft 
                         style={{fontSize : "40px"}}
                         onClick={() => arrowDirectionClick("arrowLeft")}
                     />
+<<<<<<< HEAD
+                </div>
+                <Image src={`https://picsum.photos/id/${imageindex}/600/500`}/>
+                <div>
+=======
                 </ArrowLeft>
                 <Image src={`https://picsum.photos/id/${imageindex}/0/0`}/>
                 <ArrowRight>
+>>>>>>> main
                     <AiOutlineArrowRight 
                         style={{fontSize : "40px"}}
                         onClick={() => arrowDirectionClick("arrowRight")}
                     />
-                </ArrowRight>
+                </div>
             </Slider>
             
             <HotelInfos>

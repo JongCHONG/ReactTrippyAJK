@@ -34,11 +34,7 @@ const Nav = () => {
             Favoris
           </Link>
         </NavBarLi>
-        <NavBarLi>
-          <Link to="/login" style={{color: "black",textDecoration: "none"}}>
-            login
-          </Link>
-        </NavBarLi>
+        /login/
       </NavbarUl>
     </>
   )

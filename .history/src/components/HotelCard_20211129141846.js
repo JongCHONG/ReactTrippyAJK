@@ -87,19 +87,25 @@ export default function HotelCard(props) {
                 <h1>City : {props.hotelImages.city}</h1>
             </Location>
             <Slider>
-                <ArrowLeft>
+                <div>
                     <AiOutlineArrowLeft 
                         style={{fontSize : "40px"}}
                         onClick={() => arrowDirectionClick("arrowLeft")}
                     />
+<<<<<<< HEAD
+                </div>
+                <Image src={`https://picsum.photos/id/${imageindex}/600/500`}/>
+                <div>
+=======
                 </ArrowLeft>
                 <Image src={`https://picsum.photos/id/${imageindex}/0/0`}/>
                 <ArrowRight>
+>>>>>>> main
                     <AiOutlineArrowRight 
                         style={{fontSize : "40px"}}
                         onClick={() => arrowDirectionClick("arrowRight")}
                     />
-                </ArrowRight>
+                </div>
             </Slider>
             
             <HotelInfos>

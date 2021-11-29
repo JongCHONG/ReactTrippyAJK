@@ -35,7 +35,7 @@ const Nav = () => {
           </Link>
         </NavBarLi>
         <NavBarLi>
-          <Link to="/login" style={{color: "black",textDecoration: "none"}}>
+          <Link to="//login" style={{color: "black",textDecoration: "none"}}>
             login
           </Link>
         </NavBarLi>

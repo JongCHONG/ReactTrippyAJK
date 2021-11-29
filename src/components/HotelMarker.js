@@ -19,7 +19,7 @@ const MarkerPrice = styled.div`
 
 const HotelMarker = (props) => {
   const [showInfoWindow, setshowInfoWindow] = useState(false)
-  const { listHotel, id } = props
+  const { listHotel } = props
 
   // const result = listHotel.find(element => console.log(element.id))
   const handleOnMouseEnter = () => {

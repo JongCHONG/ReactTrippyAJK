@@ -99,7 +99,7 @@ export default function HotelCard(props) {
                         style={{fontSize : "40px"}}
                         onClick={() => arrowDirectionClick("arrowRight")}
                     />
-                </ArrowRight>
+                <
             </Slider>
             
             <HotelInfos>

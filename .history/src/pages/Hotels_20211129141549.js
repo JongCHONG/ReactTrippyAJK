@@ -6,7 +6,6 @@ import { Link } from "react-router-dom"
 import ButtonPage from "../components/ButtonPage"
 import HotelMap from "../components/HotelMap"
 import Stars from "../components/Stars"
-import HotelImage from "../HotelImage.json"
 
 // import { GetHotel } from "../utils/fetchAPI"
 
@@ -44,17 +43,6 @@ const ImageHotelMiniature = styled.div`
   background-size: 100%;
   background-size: cover;
   background-repeat: no-repeat;
-`
-const ImageDesrcription = styled.div`
-  background : rgba(0,0,0,0.6);
-  color : #fff;
-  width : 100%;
-  height : 40%;
-  border-bottom-left-radius : 20px;
-  border-bottom-right-radius : 20px;
-  position : absolute;
-  padding : 0px 4% 5px 4%;
-  bottom : 0
 `
 const ImageTitle = styled.div`
   display : flex;
@@ -105,6 +93,9 @@ const Hotels = (props) => {
   //   }
   // }, [selectedHotel])
 
+<<<<<<< HEAD
+  console.log(listHotel)
+=======
   // console.log(listHotel)
   const onclickPicture = (index) => {
     // console.log("index",index);
@@ -118,15 +109,26 @@ const Hotels = (props) => {
     localStorage.setItem("indexs",JSON.stringify(indexArray)) 
   }
   // console.log("hotel",city);
+>>>>>>> main
   return (
     <>
       <SectionListHotel>
         <DivLeft>
             {/* <button onClick={handleHotelClick}>test</button> */}
           <ListHotel>
-            {listHotel.results.map((element, index) => (
+            {listHotel.results.map(element => (
               <div ref={titleRef}>
                 <HotelMiniature key={element._id}>  
+<<<<<<< HEAD
+                <Link to= {`/hotel/${element._id}`}>
+                  <ImageHotelMiniature style={{ backgroundImage: `url('https://trippy-konexio.herokuapp.com/img/hotels/${element.tripAdvisorId}_1.jpg')`}}/>
+                </Link>
+                  <p>{element.name}</p>
+                  <PriceStars>
+                    <p>{element.price + "€"}</p>
+                    <p>{<Stars numStars={element.stars} />}</p>
+                  </PriceStars>
+=======
                   <Link to= {`/hotel/${element._id}`}>
                     <ImageHotelMiniature
                       src={HotelImage.entrance[index]}
@@ -146,6 +148,7 @@ const Hotels = (props) => {
                       <p>{<Stars numStars={element.stars} />}</p>
                     </PriceStars>
                   </ImageDesrcription>
+>>>>>>> main
                 </HotelMiniature>
               </div>
             ))}

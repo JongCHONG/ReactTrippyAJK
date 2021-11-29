@@ -7,8 +7,8 @@ import HotelPage from "./pages/HotelPage"
 import NotFound from "./pages/NotFound"
 import Nav from "./components/Nav"
 import Footer from "./components/Footer"
-import Favoris from "./pages/Favoris"
 import Login from "./components/Login"
+import Favoris from "./pages/Favoris"
 import GlobalStyle from "./globalStyles"
 
 const Body = styled.div`

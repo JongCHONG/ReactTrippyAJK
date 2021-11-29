@@ -45,7 +45,7 @@ const ImageHotelMiniature = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
 `
-const ImageDesrcription = styled.div`
+const ImageDesrcription = styled.div
   background : rgba(0,0,0,0.6);
   color : #fff;
   width : 100%;
@@ -55,7 +55,6 @@ const ImageDesrcription = styled.div`
   position : absolute;
   padding : 0px 4% 5px 4%;
   bottom : 0
-`
 const ImageTitle = styled.div`
   display : flex;
   align-items : baseline;
