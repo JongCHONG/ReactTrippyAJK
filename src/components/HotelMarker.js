@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState} from 'react'
 
 import styled from 'styled-components'
 import InfoWindow from './InfoWindow'
@@ -19,7 +19,7 @@ const MarkerPrice = styled.div`
 
 const HotelMarker = (props) => {
   const [showInfoWindow, setshowInfoWindow] = useState(false)
-  const { listHotel, selectedHotel } = props
+  const { listHotel } = props
   // const ref = useRef()
 
   // const result = listHotel.find(element => console.log(element.id))
