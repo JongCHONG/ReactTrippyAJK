@@ -2,7 +2,7 @@ import React from 'react'
 import styled from "styled-components"
 import {useState } from 'react'
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai'
-import HotelImage from "../HotelImage.json"
+// import HotelImage from "../HotelImage.json"
 
 const CardContainer = styled.div`
     display : flex;
@@ -69,7 +69,7 @@ const Commodities = styled.div`
 `
 export default function HotelCard(props) {
 
-    const [imageindex, setImageindex] = useState(11)
+    const [imageindex, setImageindex] = useState(0)
     const arrowDirectionClick =(arrowDirection) => {
         const index = arrowDirection === "arrowRight"? 1 : -1;
         if(imageindex > 0){
@@ -119,6 +119,7 @@ export default function HotelCard(props) {
                             href={props.hotelImages.website}
                             className="linkBtn"
                             target= "_blank"
+                            rel="noreferrer"
                         >
                             visit us
                         </a>

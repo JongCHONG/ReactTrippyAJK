@@ -1,5 +1,4 @@
 import { useState } from 'react'
-
 import styled from 'styled-components'
 import InfoWindow from './InfoWindow'
 
@@ -29,11 +28,11 @@ const HotelMarker = (props) => {
     setshowInfoWindow(false)
   }
 
-  // console.log(props)
+  // console.log("hotelmaker", Id)
   return (
     <>
       <MarkerContainer>
-        <MarkerPrice onClick={() => props.handleHotelClick(listHotel._id)} onMouseEnter={() => handleOnMouseEnter()} onMouseOut={() => handleOnMouseOut()}>
+        <MarkerPrice onClick={() => props.handleHotelClick(listHotel._id)} onMouseEnter={() => handleOnMouseEnter()} onMouseLeave={() => handleOnMouseOut()}>
           {listHotel.price + "€"}
         </MarkerPrice>
       </MarkerContainer>

@@ -1,14 +1,14 @@
 import React from 'react'
 import { useEffect, useState} from "react"
 import { Link } from "react-router-dom"
-import { useParams } from "react-router"
+// import { useParams } from "react-router"
 import Stars from "../components/Stars"
 import HotelImage from "../HotelImage.json"
 import styled from "styled-components"
 
-const SectionListHotel = styled.div`
-  display:flex;
-`
+// const SectionListHotel = styled.div`
+//   display:flex;
+// `
 const ListHotel = styled.div`
 //   overflow-y: scroll;
   display: flex;
@@ -57,38 +57,54 @@ const PriceStars = styled.div`
   justify-content: space-between;
   font-size : 20px;
 `
+const Logo = styled.i`
+    &:hover {
+        color : red;
+        cursor : pointer;
+    }
+`
 
 export default function Favoris() {
     const [favorisList, setFavorisList] = useState(null)
-    const favorisId = JSON.parse(localStorage.getItem("indexs"))
-    console.log("favoris id :",favorisId);
-    
+    // const favorisId = JSON.parse(localStorage.getItem("indexs"))
+    const [favorisId, setFavorisId] = useState(JSON.parse(localStorage.getItem("indexs")) || [])
+    let indexArray = [] 
+    // console.log("favoris id :",favorisId);
     useEffect(() => {
-    //     fetch(`https://trippy-konexio.herokuapp.com/api/hotels/${favorisId.forEach(id => id)}`)
-    //     .then(response => response.json())
-    //     .then(data => setFavorisList(data.results))
-    // }
-        const promiseArray = favorisId.map(id => {
-            return (
-                fetch(`https://trippy-konexio.herokuapp.com/api/hotels/${id}`)
-            )
-        }) 
-        Promise.all(promiseArray)
-            .then(results => Promise.all(results.map(result => result.json())))
-            .then(data => {
-                const result = data.map(element => element.result)
-                setFavorisList(result)
+        if(favorisId) {
+            const promiseArray = favorisId.map(id => {
+                return (
+                    fetch(`https://trippy-konexio.herokuapp.com/api/hotels/${id}`)
+                )
+            }) 
+            Promise.all(promiseArray)
+                .then(results => Promise.all(results.map(result => result.json())))
+                .then(data => {
+                    const result = data.map(element => element.result)
+                    setFavorisList(result)
             })
-    },[])
-    const element = () => {
+        }
+        
+    },[favorisId])
 
+    const onclickRemove = (id) => {
+        if(localStorage.getItem("indexs")){
+            indexArray = JSON.parse(localStorage.getItem("indexs"))
+            const index = indexArray.findIndex(element => {
+                return element === id
+            })
+            // console.log("elementId", index);
+            indexArray.splice(index,1)
+         }
+          localStorage.setItem("indexs",JSON.stringify(indexArray))
+          setFavorisId(indexArray)
     }
 
-    console.log("favorislist",favorisList);
+    // console.log("favorislist",favorisList);
     
-      if(!favorisList){
-          return <h1>There is no favoris</h1>
-      }
+    if(!favorisList){
+        return <h1>There is no favoris</h1>
+    }
     return (
         <div>
            <ListHotel>
@@ -102,7 +118,11 @@ export default function Favoris() {
                     <ImageDesrcription>
                         <ImageTitle>
                         <h4>{element.name}</h4>
-                        <i class="far fa-trash-alt" style={{fontSize : "25px"}}></i>
+                        <Logo 
+                            className="far fa-trash-alt" 
+                            style={{fontSize : "25px"}}
+                            onClick = {() => onclickRemove(element._id)}
+                        ></Logo>
                         </ImageTitle>
                         <PriceStars>
                         <p>{element.price + "€"}</p>
