@@ -133,5 +133,6 @@ export default function Favoris() {
             ))}
           </ListHotel>
         </div>
+        
     )
 }
