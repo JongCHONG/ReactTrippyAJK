@@ -15,7 +15,7 @@ const ImageContainer = styled.div`
     // background-color : red;
     margin : 20px 40px 20px 20px ;
         @media (max-width: 770px) {
-           width : 80%;     
+           width : 60%;     
         }
         &:first-child {
             width : 100%;
@@ -40,7 +40,7 @@ const Image = styled.img`
     box-shadow: 6px 6px 5px grey;
     cursor : pointer;
          
-        &:first-child {
+        &:nth-child(1) {
             left:0;
             width : 100%;
             height : 450px;
@@ -50,10 +50,9 @@ const Image = styled.img`
             // position:absolute;
 
             @media (max-width: 770px) {
-                height : 650px;     
+                height : 550px;     
             }
         }
-        
 `
 const CityName = styled.h2`
     font-size : 35px;

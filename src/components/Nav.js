@@ -10,7 +10,7 @@ const NavbarUl = styled.ul`
       position : absolute;
       width : 100%;
       height : 100vh;
-      top : -18px;
+      right : -50px;
       z-index : 3;
       background : rgba(0,0,0,0.7);
       color : #ffff;
@@ -18,7 +18,7 @@ const NavbarUl = styled.ul`
       justify-content: center;
       padding-top : 30px;
       transition : all ease 1s;
-      right : ${(props) => props.print ? "-50px" : "-200%"};
+      top : ${(props) => props.print ? "-18px" : "-200%"};
       visibility : ${(props) => props.print ? "visible" : "hidden"};
       gap : ${(props) => props.print ? "80px" : "0px"};
     }
