@@ -97,14 +97,14 @@ const Hotels = (props) => {
   // const { Id } = useContext(IdContext)
   let numPage = [];
   let indexArray = [] 
-  const [logoColor, setLogoColor] = useState(false)
+  // const [logoColor, setLogoColor] = useState(false)
   const [favorisId, setFavorisId] = useState([])
 
   useEffect(() => {
     fetch(`https://trippy-konexio.herokuapp.com/api/hotels/city/${city ? city : "paris"}?page=${page}`)
     .then(response => response.json())
     .then(data => setlistHotel(data))
-  }, [page])
+  }, [page, city])
 
   if (!listHotel) {
     return <p>Pas de Hotel</p>

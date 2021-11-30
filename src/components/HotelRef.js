@@ -60,7 +60,7 @@ const HotelRef = ({element, index, onclickLogo, selectedHotel, favorisId}) => {
     if (element._id === selectedHotel) {
       titleRef.current.scrollIntoView({ behavior: "smooth" })
     }
-  }, [selectedHotel])
+  }, [selectedHotel, element])
 
   // console.log("hotelrefselected", selectedHotel)
   return (
