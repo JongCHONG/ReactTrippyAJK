@@ -3,8 +3,6 @@ import { useState} from 'react'
 import styled from 'styled-components'
 import InfoWindow from './InfoWindow'
 
-// import { FaMapMarkerAlt } from 'react-icons/fa'
-
 const MarkerContainer = styled.div`
   width: 40px;
   height: 40px;
@@ -20,7 +18,6 @@ const MarkerPrice = styled.div`
 const HotelMarker = (props) => {
   const [showInfoWindow, setshowInfoWindow] = useState(false)
   const { listHotel } = props
-  // const ref = useRef()
 
   // const result = listHotel.find(element => console.log(element.id))
   const handleOnMouseEnter = () => {
@@ -29,12 +26,6 @@ const HotelMarker = (props) => {
   const handleOnMouseOut = () => {
     setshowInfoWindow(false)
   }
-
-  // useEffect(() => {
-  //   if (listHotel._id === selectedHotel) {
-  //     ref.current.scrollIntoView({ behavior: "smooth" })
-  //   }
-  // }, [selectedHotel])
 
   console.log(listHotel)
   return (
