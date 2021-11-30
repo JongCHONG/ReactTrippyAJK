@@ -39,7 +39,7 @@ const NavBarLi = styled.li`
       font-size : 40px;
       display :flex;
       justify-content: center;
-      transition : all ease 3s;
+      transition : all ease 2s;
       margin : 0;
       margin-top : ${(props) => props.print ? "80px" : "0px"};
       // border-bottom : 2px solid grey;
