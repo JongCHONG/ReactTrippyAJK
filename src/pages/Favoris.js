@@ -1,14 +1,11 @@
 import React from 'react'
 import { useEffect, useState} from "react"
 import { Link } from "react-router-dom"
-// import { useParams } from "react-router"
 import Stars from "../components/Stars"
 import HotelImage from "../HotelImage.json"
 import styled from "styled-components"
 
-// const SectionListHotel = styled.div`
-//   display:flex;
-// `
+
 const ListHotel = styled.div`
 //   overflow-y: scroll;
   display: flex;
@@ -66,10 +63,9 @@ const Logo = styled.i`
 
 export default function Favoris() {
     const [favorisList, setFavorisList] = useState(null)
-    // const favorisId = JSON.parse(localStorage.getItem("indexs"))
     const [favorisId, setFavorisId] = useState(JSON.parse(localStorage.getItem("indexs")) || [])
     let indexArray = [] 
-    // console.log("favoris id :",favorisId);
+
     useEffect(() => {
         if(favorisId) {
             const promiseArray = favorisId.map(id => {
@@ -93,7 +89,6 @@ export default function Favoris() {
             const index = indexArray.findIndex(element => {
                 return element === id
             })
-            // console.log("elementId", index);
             indexArray.splice(index,1)
          }
           localStorage.setItem("indexs",JSON.stringify(indexArray))
