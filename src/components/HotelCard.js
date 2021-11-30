@@ -2,7 +2,7 @@ import React from 'react'
 import styled from "styled-components"
 import {useState } from 'react'
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai'
-// import HotelImage from "../HotelImage.json"
+
 
 const CardContainer = styled.div`
     display : flex;
@@ -45,11 +45,15 @@ const Location = styled.div`
 `
 const HotelInfos = styled.div`
     display : flex;
-    // gap : 20%;
     width : 100%;
     justify-content: space-around;
     margin : 40px 0;
     align-items : baseline;
+        @media (max-width: 900px) {
+            justify-content : center;
+            margin : 60px 0;
+            gap : 5%;
+        }
 `
 const About = styled.div`
     padding-right:20px;
@@ -59,6 +63,11 @@ const PriceButton = styled.button`
     padding: 7px 20px;
     border-radius: 20px;
     background : blue;
+`
+const ContainerCommodities = styled.div`
+    display : flex;
+    flex-direction : column;
+    align-items : center;
 `
 const Commodities = styled.div`
     display : flex;
@@ -125,14 +134,14 @@ export default function HotelCard(props) {
                         </a>
                     </PriceButton>
                 </About>
-                <div>
+                <ContainerCommodities>
                     <h1>Commodities</h1>
                     <Commodities>
                     {props.hotelImages.commodities.map((commoditie,index) => {
                         return <p key={index}>{commoditie}</p>
                     })}
                     </Commodities>
-                </div>
+                </ContainerCommodities>
             </HotelInfos>
         </CardContainer>
     )

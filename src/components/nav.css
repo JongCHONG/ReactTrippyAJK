@@ -18,9 +18,9 @@ li{
     font-weight : bold;
 }
 
-.fa-bars:before{
+/* .fa-bars:before{
     display : none;
-}
+} */
 @media (max-width: 810px) {
     .fa-bars {
         display: block;

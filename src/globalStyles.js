@@ -4,7 +4,9 @@ const GlobalStyle = createGlobalStyle`
   * {
     box-sizing: border-box;
   };
-
+  body {
+    // overflow: hidden;
+  }
   li {
       list-style-type : none;
   };
