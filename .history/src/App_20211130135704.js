@@ -11,7 +11,7 @@ import Nav from "./components/Nav"
 import Footer from "./components/Footer"
 import Favoris from "./pages/Favoris"
 import GlobalStyle from "./globalStyles"
-const Body = styled.div`
+onst Body = styled.div`
   background-color: #D4F5F5;
   color: #554348
 `

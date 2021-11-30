@@ -15,7 +15,7 @@ const ImageContainer = styled.div`
     // background-color : red;
     margin : 20px 40px 20px 20px ;
         @media (max-width: 770px) {
-           width : 80%;     
+           width : 60%;     
         }
         &:first-child {
             width : 100%;
@@ -30,6 +30,7 @@ const ImageContainer = styled.div`
                     height : 550px;
                 }
         }
+
 `
 const Image = styled.img`
     width : 100%;
@@ -47,6 +48,7 @@ const Image = styled.img`
             object-fit: cover;
             margin-bottom : 20px;
             // position:absolute;
+
             @media (max-width: 770px) {
                 height : 550px;     
             }

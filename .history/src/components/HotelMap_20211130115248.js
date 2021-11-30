@@ -47,4 +47,4 @@ const HotelMap = (props )=> {
   
 }
 
-export default  HotelMap
+export default HotelMap

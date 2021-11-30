@@ -27,18 +27,7 @@ const Filtre = styled.div`
   justify-content: space-around;
   margin: 10px auto;
 `
-const Button = styled.button`
-  border : 2px solid blue;
-  background : blue;
-  color : #ffff;
-  border-radius : 20px;
-  font-weight : bold;
-  padding : 4px 10px;
-    &:hover {
-      color : blue;
-      background : #ffff;
-    }
-`
+
 const HotelRooms = props => {
   const { hotelRooms } = props
   const [sortByPeople, setSortByPeople] = useState(false)
@@ -81,9 +70,9 @@ const HotelRooms = props => {
   return (
     <>
       <Filtre>
-        <Button onClick={handleClickSortByPeople}>Sort by people</Button>
-        <Button onClick={handleClickSortByPrice}>Sort by price</Button>
-        <Button onClick={handleClickSortByBathroom}>Sort by Bathroom</Button>
+        <button onClick={handleClickSortByPeople}>Sort by people</button>
+        <button onClick={handleClickSortByPrice}>Sort by price</button>
+        <button onClick={handleClickSortByBathroom}>Sort by Bathroom</button>
       </Filtre>
       <TitleRow>
         <Case>
