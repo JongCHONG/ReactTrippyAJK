@@ -1,14 +1,14 @@
 import React from 'react'
 import { useEffect, useState} from "react"
 import { Link } from "react-router-dom"
-import { useParams } from "react-router"
+// import { useParams } from "react-router"
 import Stars from "../components/Stars"
 import HotelImage from "../HotelImage.json"
 import styled from "styled-components"
 
-const SectionListHotel = styled.div`
-  display:flex;
-`
+// const SectionListHotel = styled.div`
+//   display:flex;
+// `
 const ListHotel = styled.div`
 //   overflow-y: scroll;
   display: flex;

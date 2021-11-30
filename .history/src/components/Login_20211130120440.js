@@ -5,8 +5,8 @@ import Home from '../pages/Home';
 
 function Login() {
 const adminUser = {
-    email: "konexio@gmail.com", 
-    password: "12345"
+    email: "", 
+    password: "12345678"
 }
 
 
