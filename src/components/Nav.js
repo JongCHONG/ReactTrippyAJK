@@ -100,7 +100,7 @@ const Nav = () => {
         </NavBarLi>
         <NavBarLi print = {printNavBar}>
           <Link to="/favoris" style={{color: printNavBar ? "#fff" : "black"}}>
-            Favoris
+            Favorites
           </Link>
         </NavBarLi>
         <NavBarLi print = {printNavBar}>

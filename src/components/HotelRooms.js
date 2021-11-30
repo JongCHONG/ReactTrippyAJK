@@ -7,7 +7,7 @@ const Container = styled.div`
   width : 100;
 `
 const TitleRow = styled.div`
-  width: 600px;
+  width: 100%;
   padding: 5px 5px 0 5px;
   border-bottom: 1px solid gray;
   display: flex;
@@ -24,7 +24,7 @@ const Row = styled.div`
   border-bottom: 1px solid gray;
 `
 const Case = styled.div`
-  width: 50%;
+  width: 100%;
   padding: 5px;
 `
 const Filtre = styled.div`

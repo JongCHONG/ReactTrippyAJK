@@ -12,10 +12,12 @@ import styled from "styled-components"
 const ListHotel = styled.div`
 //   overflow-y: scroll;
   display: flex;
+  min-height: 80vh;
   flex-wrap: wrap;
 //   height: 90vh;
   justify-content : center;
   scrollbar-width: thin;
+  
 `
 const HotelMiniature = styled.div`
   width: 300px;
@@ -95,6 +97,8 @@ export default function Favoris() {
             })
             // console.log("elementId", index);
             indexArray.splice(index,1)
+         }else {
+            return <h1>There is no Favorites</h1>
          }
           localStorage.setItem("indexs",JSON.stringify(indexArray))
           setFavorisId(indexArray)
@@ -103,7 +107,7 @@ export default function Favoris() {
     // console.log("favorislist",favorisList);
     
     if(!favorisList){
-        return <h1>There is no favoris</h1>
+        return <h1>There is no Favorites</h1>
     }
     return (
         <div>
