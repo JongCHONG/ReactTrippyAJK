@@ -1,3 +1,13 @@
+
+
+
+
+
+
+
+
+
+
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import styled from "styled-components"
 import { IdContextProvider } from "./contexts/Id"
@@ -67,4 +77,4 @@ const App = () => {
   )
 }
 
-export default App
+export default 

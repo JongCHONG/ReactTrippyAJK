@@ -39,27 +39,25 @@ const App = () => {
       <GlobalStyle/>
       <div>
         <Container>
-          <IdContextProvider>
-            <BrowserRouter>
-              <Header>
-                <H1>
-                  Trippy-Advisor
-                </H1>
-                <Nav />
-              </Header>
-              
-              <Routes>
-                <Route exact path="/" element={<Home />} />
-                <Route exact path="/hotels/paris/" element={<Hotels />} />
-                <Route path="/hotels/:city" element={<Hotels />} />
-                <Route exact path="/hotelpage/" element={<HotelPage />} />
-                <Route path="/hotel/:id" element={<HotelPage />} />
-                <Route path="/favoris" element={<Favoris/>}/>
-                <Route exact path="/login/" element={<Login />} />
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </BrowserRouter>
-          </IdContextProvider>
+          <BrowserRouter>
+            <Header>
+              <H1>
+                Trippy-Advisor
+              </H1>
+              <Nav />
+            </Header>
+            
+            <Routes>
+              <Route exact path="/" element={<Home />} />
+              <Route exact path="/hotels/paris/" element={<Hotels />} />
+              <Route path="/hotels/:city" element={<Hotels />} />
+              <Route exact path="/hotelpage/" element={<HotelPage />} />
+              <Route path="/hotel/:id" element={<HotelPage />} />
+              <Route path="/favoris" element={<Favoris/>}/>
+              <Route exact path="/login/" element={<Login />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </BrowserRouter>
         </Container>
         <Footer/>
       </div>
@@ -68,3 +66,12 @@ const App = () => {
 }
 
 export default App
+
+
+
+
+
+
+
+
+

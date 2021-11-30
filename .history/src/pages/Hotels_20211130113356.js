@@ -93,18 +93,16 @@ const Hotels = (props) => {
   // console.log("city",city)
   const [listHotel, setlistHotel] = useState(null)
   const [page, setPage] = useState(1)
-  const [selectedHotel, setSelectedHotel] = useState(null)
-  // const { Id } = useContext(IdContext)
+  const [selectedHotel, setselectedHotel] = useState(null)
+  const titleRef = useRef()
   let numPage = [];
   let indexArray = [] 
-  // const [logoColor, setLogoColor] = useState(false)
-  const [favorisId, setFavorisId] = useState([])
 
   useEffect(() => {
     fetch(`https://trippy-konexio.herokuapp.com/api/hotels/city/${city ? city : "paris"}?page=${page}`)
     .then(response => response.json())
     .then(data => setlistHotel(data))
-  }, [page, city])
+  }, [page])
 
   if (!listHotel) {
     return <p>Pas de Hotel</p>
@@ -127,18 +125,13 @@ const Hotels = (props) => {
   // }, [selectedHotel])
 
   // console.log(listHotel)
-  const onclickLogo = (index) => {
-    if(favorisId.includes(index)) {
-      onclickRemove(index)
-    }else {
-      if(localStorage.getItem("indexs")){
-        indexArray = JSON.parse(localStorage.getItem("indexs"))
-        indexArray.push(index)
-      } else {
-        indexArray.push(index)
-      }
-      localStorage.setItem("indexs",JSON.stringify(indexArray)) 
-      setFavorisId(indexArray)
+  const onclickPicture = (index) => {
+    // console.log("index",index);
+    if(localStorage.getItem("indexs")){
+      indexArray = JSON.parse(localStorage.getItem("indexs"))
+      indexArray.push(index)
+    } else {
+      indexArray.push(index)
     }
     
   }
