@@ -2,12 +2,15 @@ import { Link } from "react-router-dom"
 import { useState } from "react"
 import styled from "styled-components"
 const ContainerNav =  styled.div`
+  // display : flex;
+  // justify-content : center;
 `
 const NavbarUl = styled.ul`
   display: flex;
   margin-right : 50px;
     @media (max-width: 810px) {
       position : absolute;
+      // margin : 50px;
       width : 100%;
       height : 110vh;
       right : -50px;
@@ -16,11 +19,12 @@ const NavbarUl = styled.ul`
       color : #ffff;
       flex-direction : column;
       justify-content: center;
-      padding-top : 30px;
+      align-items : center ;
+      // padding-top : 30px;
       transition : all ease 1s;
       top : ${(props) => props.print ? "-18px" : "-200%"};
       visibility : ${(props) => props.print ? "visible" : "hidden"};
-      gap : ${(props) => props.print ? "80px" : "0px"};
+      gap : ${(props) => props.print ? "0px" : "10px"};
     }
   `
 const NavBarLi = styled.li`
@@ -35,13 +39,21 @@ const NavBarLi = styled.li`
       font-size : 40px;
       display :flex;
       justify-content: center;
+      transition : all ease 3s;
+      margin : 0;
+      margin-top : ${(props) => props.print ? "80px" : "0px"};
+      // border-bottom : 2px solid grey;
+      padding-bottom : 15px;
+      width : 100%;
+      
     }
 `
 const LogoBars = styled.i`
   position : absolute;
-  top : -70;
+  top : -400px;
   @media (max-width: 810px) {
     position : relative;
+    top : 0;
     font-size : 40px;
     cursor : pointer;
     display : block;
@@ -76,17 +88,17 @@ const Nav = () => {
           >
           </LogoTimes>
         }
-        <NavBarLi>
+        <NavBarLi print = {printNavBar}>
           <Link to="/" style={{color: printNavBar ? "#fff" : "black"}}>
             Home
           </Link>     
         </NavBarLi>
-        <NavBarLi>
+        <NavBarLi print = {printNavBar}>
           <Link to="/hotels/paris" style={{color: printNavBar ? "#fff" : "black"}}>
             Hotels
           </Link>
         </NavBarLi>
-        <NavBarLi>
+        <NavBarLi print = {printNavBar}>
           <Link to="/favoris" style={{color: printNavBar ? "#fff" : "black"}}>
             Favoris
           </Link>
