@@ -118,11 +118,15 @@ export default function Favoris() {
                     <ImageDesrcription>
                         <ImageTitle>
                         <h4>{element.name}</h4>
+<<<<<<< HEAD
                         <Logo 
                             className="far fa-trash-alt" 
                             style={{fontSize : "25px"}}
                             onClick = {() => onclickRemove(element._id)}
                         ></Logo>
+=======
+                        <i class="far fa-trash-alt" style={{fontSize : "25px"}}></i>
+>>>>>>> main
                         </ImageTitle>
                         <PriceStars>
                         <p>{element.price + "€"}</p>
