@@ -27,7 +27,7 @@ const ImageContainer = styled.div`
             align-items : center;
             position : relative;
                 @media (max-width: 770px) {
-                    height : 650px;
+                    height : 550px;
                 }
         }
 
