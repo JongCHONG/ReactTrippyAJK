@@ -103,9 +103,9 @@ const Nav = () => {
             Favoris
           </Link>
         </NavBarLi>
-        <NavBarLi>
-          <Link to="/login" style={{color: "black",textDecoration: "none"}}>
-            login
+        <NavBarLi print = {printNavBar}>
+          <Link to="/login" style={{color: printNavBar ? "#fff" : "black"}}>
+            Login
           </Link>
         </NavBarLi>
       </NavbarUl>

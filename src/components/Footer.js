@@ -5,8 +5,10 @@ import styled from "styled-components"
 const PageFooter = styled.footer`
     width : 100%;
     display : flex;
+    padding : 0 40px;
     flex-direction : column;
     justify-content: center;
+    align-items : space-between;
     background-color:#ABE7E7;
     padding-top : 20px;
     margin-top : 40px;

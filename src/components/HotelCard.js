@@ -50,9 +50,10 @@ const HotelInfos = styled.div`
     margin : 40px 0;
     align-items : baseline;
         @media (max-width: 900px) {
-            justify-content : center;
-            margin : 60px 0;
-            gap : 5%;
+            flex-direction : column;
+            align-items : center;
+            // margin : 60px 0;
+            gap : 30px;
         }
 `
 const About = styled.div`
@@ -68,6 +69,9 @@ const ContainerCommodities = styled.div`
     display : flex;
     flex-direction : column;
     align-items : center;
+    @media (max-width: 900px) {
+        width : 100%;
+    }
 `
 const Commodities = styled.div`
     display : flex;
@@ -75,6 +79,10 @@ const Commodities = styled.div`
     height :200px;
     width: 400px;
     overflow-y: scroll;
+    @media (max-width: 900px) {
+        width : 100%;
+    }
+    
 `
 export default function HotelCard(props) {
 

@@ -2,27 +2,33 @@ import { useState } from "react"
 import styled from "styled-components"
 // import ButtonPage from "../components/ButtonPage"
 
-
+const Container = styled.div`
+  margin-top : 40px;
+  width : 100;
+`
 const TitleRow = styled.div`
   width: 600px;
   padding: 5px 5px 0 5px;
   border-bottom: 1px solid gray;
   display: flex;
   margin: 10px auto 0 auto;
+  @media (max-width: 700px) {
+    width : 100%;
+  }
 `
 const Row = styled.div`
-  width: 600px;
+  width : 100%;
   padding: 0 5px ;
   display: flex;
   margin: 0 auto;
   border-bottom: 1px solid gray;
 `
 const Case = styled.div`
-  width: 300px;
+  width: 50%;
   padding: 5px;
 `
 const Filtre = styled.div`
-  width: 600px;
+  width: 100%;
   display: flex;
   justify-content: space-around;
   margin: 10px auto;
@@ -79,7 +85,7 @@ const HotelRooms = props => {
   // console.log("sorted", sorted)
   // console.log("results", hotelRooms.results)
   return (
-    <>
+    <Container>
       <Filtre>
         <Button onClick={handleClickSortByPeople}>Sort by people</Button>
         <Button onClick={handleClickSortByPrice}>Sort by price</Button>
@@ -112,7 +118,7 @@ const HotelRooms = props => {
       {/* {numPage.map(element => (
         <ButtonPage numPage={element} onClick={() => handleOnClick(element)}/>
       ))} */}
-    </>
+    </Container>
   )
 }
 
