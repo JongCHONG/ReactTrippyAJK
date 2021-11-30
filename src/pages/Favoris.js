@@ -69,7 +69,7 @@ export default function Favoris() {
     // const favorisId = JSON.parse(localStorage.getItem("indexs"))
     const [favorisId, setFavorisId] = useState(JSON.parse(localStorage.getItem("indexs")) || [])
     let indexArray = [] 
-    console.log("favoris id :",favorisId);
+    // console.log("favoris id :",favorisId);
     useEffect(() => {
         if(favorisId) {
             const promiseArray = favorisId.map(id => {
@@ -93,18 +93,18 @@ export default function Favoris() {
             const index = indexArray.findIndex(element => {
                 return element === id
             })
-            console.log("elementId", index);
+            // console.log("elementId", index);
             indexArray.splice(index,1)
          }
           localStorage.setItem("indexs",JSON.stringify(indexArray))
           setFavorisId(indexArray)
     }
 
-    console.log("favorislist",favorisList);
+    // console.log("favorislist",favorisList);
     
-      if(!favorisList){
-          return <h1>There is no favoris</h1>
-      }
+    if(!favorisList){
+        return <h1>There is no favoris</h1>
+    }
     return (
         <div>
            <ListHotel>

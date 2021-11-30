@@ -36,7 +36,7 @@ const HotelMarker = (props) => {
   //   }
   // }, [selectedHotel])
 
-  console.log(listHotel)
+  // console.log(listHotel)
   return (
     <>
       <MarkerContainer>

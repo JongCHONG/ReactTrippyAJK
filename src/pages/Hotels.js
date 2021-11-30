@@ -78,6 +78,13 @@ const PriceStars = styled.div`
   justify-content: space-between;
   font-size : 20px;
 `
+const Logo = styled.i`
+cursor : pointer;
+fontSize : 25px; 
+  &:hover {
+    color : red;
+  }
+`
 
 const Hotels = (props) => {
   const { city } = useParams();
@@ -88,6 +95,8 @@ const Hotels = (props) => {
   const titleRef = useRef()
   let numPage = [];
   let indexArray = [] 
+  const [logoColor, setLogoColor] = useState(false)
+  const [favorisId, setFavorisId] = useState([])
 
   useEffect(() => {
     fetch(`https://trippy-konexio.herokuapp.com/api/hotels/city/${city ? city : "paris"}?page=${page}`)
@@ -116,17 +125,34 @@ const Hotels = (props) => {
   // }, [selectedHotel])
 
   // console.log(listHotel)
-  const onclickPicture = (index) => {
-    // console.log("index",index);
-    if(localStorage.getItem("indexs")){
-      indexArray = JSON.parse(localStorage.getItem("indexs"))
-      indexArray.push(index)
-    } else {
-      indexArray.push(index)
+  const onclickLogo = (index) => {
+    if(favorisId.includes(index)) {
+      onclickRemove(index)
+    }else {
+      if(localStorage.getItem("indexs")){
+        indexArray = JSON.parse(localStorage.getItem("indexs"))
+        indexArray.push(index)
+      } else {
+        indexArray.push(index)
+      }
+      localStorage.setItem("indexs",JSON.stringify(indexArray)) 
+      setFavorisId(indexArray)
     }
-    localStorage.setItem("indexs",JSON.stringify(indexArray)) 
+    
   }
-  // console.log("hotel",city);
+  const onclickRemove = (id) => {
+    if(localStorage.getItem("indexs")){
+        indexArray = JSON.parse(localStorage.getItem("indexs"))
+        const index = indexArray.findIndex(element => {
+            return element === id
+        })
+        // console.log("elementId", index);
+        indexArray.splice(index,1)
+     }
+      localStorage.setItem("indexs",JSON.stringify(indexArray))
+      setFavorisId(indexArray)
+  }
+  console.log("favoris",favorisId);
   return (
     <>
       <SectionListHotel>
@@ -143,11 +169,11 @@ const Hotels = (props) => {
                   <ImageDesrcription>
                     <ImageTitle>
                       <h4>{element.name}</h4>
-                      <i class="far fa-heart"
-                      style={{fontSize : "25px"}}
-                      onClick = {() => onclickPicture (element._id)}
+                      <Logo className="fas fa-heart"
+                        style={{ color : favorisId.includes(element._id) ? "red" : " "}}
+                        onClick = {() => onclickLogo (element._id)}
                       >
-                      </i>
+                      </Logo>
                     </ImageTitle>
                     <PriceStars>
                       <p>{element.price + "€"}</p>

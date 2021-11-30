@@ -15,9 +15,12 @@ const ListContainer= styled.div`
     display : flex;
     justify-content : center;
     gap: 10%;
+    @media (max-width: 810px) {
+        f
+      }
 `
 const ListElements = styled.div`
-
+    width : 20%;
 `
 const LogoContainer = styled.div`
     width: 100%;
