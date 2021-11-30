@@ -2,7 +2,6 @@ import React from 'react'
 
 import { useState, useEffect } from 'react'
 import GoogleMapReact from 'google-map-react'
-// import HotelMarker from './HotelMarker'
 import styled from 'styled-components'
 
 const MapContainer = styled.div`
@@ -27,8 +26,8 @@ export default function HotelPagesMap(props) {
     if(!hotelElement){
         return <h1>error, there is no pictures</h1>
     }
-    // console.log("map",hotelElement);
 
+    // console.log("map",hotelElement);
     return (
         <Container>
             <MapContainer>

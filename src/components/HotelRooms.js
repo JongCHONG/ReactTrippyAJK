@@ -1,6 +1,5 @@
 import { useState } from "react"
 import styled from "styled-components"
-// import ButtonPage from "../components/ButtonPage"
 
 const Container = styled.div`
   margin-top : 40px;
@@ -82,7 +81,6 @@ const HotelRooms = props => {
   //   numPage = [...numPage, i]
   // }
 
-  // console.log("sorted", sorted)
   // console.log("results", hotelRooms.results)
   return (
     <Container>

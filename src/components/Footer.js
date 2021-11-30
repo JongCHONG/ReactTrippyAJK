@@ -64,8 +64,8 @@ export default function Footer() {
             <ListContainer>
                 <ListElements>
                     <ul>
-                        <h3>À propos de Tripadvisor</h3>
-                        <li>À propos de Tripadvisor</li>
+                        <h3>À propos de Trippy-Advisor</h3>
+                        <li>À propos de Trippy-Advisor</li>
                         <li>Presse</li>
                         <li>Ressources et règlements</li>
                         <li>Emplois</li>
