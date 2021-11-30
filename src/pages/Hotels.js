@@ -12,6 +12,10 @@ import HotelImage from "../HotelImage.json"
 
 const SectionListHotel = styled.div`
   display:flex;
+    @media (max-width: 970px) {
+      flex-direction : column;
+      gap : 40px;
+    }
 `
 const DivLeft = styled.div`
   width: 46%;
@@ -21,6 +25,9 @@ const DivLeft = styled.div`
   flex-direction: column;
   flex-wrap: wrap;
   align-items : center;
+    @media (max-width: 970px) {
+      width: 70%;
+    }
 `
 const ListHotel = styled.div`
   overflow-y: scroll;
@@ -29,11 +36,23 @@ const ListHotel = styled.div`
   height: 90vh;
   justify-content : center;
   scrollbar-width: thin;
+    @media (max-width: 970px) {
+      width: 100%;
+      flex-direction : row;
+      overflow: auto;
+      flex-wrap: nowrap;
+      height: 60vh;
+      align-items:end;
+      gap : 20px;
+    }
 `
 const DivRight = styled.div`
   width: 50%;
   margin: 10px auto;
   padding: 10px;
+    @media (max-width: 970px) {
+      width: 100%;
+    }
 `
 const HotelMiniature = styled.div`
   width: 300px;
@@ -80,7 +99,7 @@ const PriceStars = styled.div`
 `
 const Logo = styled.i`
 cursor : pointer;
-fontSize : 25px; 
+font-size : 25px; 
   &:hover {
     color : red;
   }

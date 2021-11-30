@@ -2,7 +2,6 @@ import { Link } from "react-router-dom"
 import { useState } from "react"
 import styled from "styled-components"
 const ContainerNav =  styled.div`
-  overflow: hidden;
 `
 const NavbarUl = styled.ul`
   display: flex;
@@ -12,15 +11,16 @@ const NavbarUl = styled.ul`
       width : 100%;
       height : 100vh;
       top : -18px;
-      // right : -50px;
       z-index : 3;
       background : rgba(0,0,0,0.7);
       color : #ffff;
       flex-direction : column;
       justify-content: center;
       padding-top : 30px;
-      transition : all ease 0.8s;
-      right : ${(props) => props.print ? "-200px" : "-50px"};
+      transition : all ease 1s;
+      right : ${(props) => props.print ? "-50px" : "-200%"};
+      visibility : ${(props) => props.print ? "visible" : "hidden"};
+      gap : ${(props) => props.print ? "80px" : "0px"};
     }
   `
 const NavBarLi = styled.li`
@@ -38,9 +38,9 @@ const NavBarLi = styled.li`
     }
 `
 const LogoBars = styled.i`
-    :before {
-      display : none;
-    }
+    // :before {
+    //   display : none;
+    // }
   @media (max-width: 810px) {
     font-size : 40px;
     cursor : pointer;
@@ -62,16 +62,17 @@ const Nav = () => {
   const onclickLogoBars = () => {
     setPrintNavBar(true)
   }
-  const onclickLogoTimes = () => {
+  const onclickLogoRemove = () => {
     setPrintNavBar(false)
   }
+  console.log("printNavBar",printNavBar);
   return (
     <ContainerNav>
-      <NavbarUl print = {printNavBar}>
+      <NavbarUl print = {printNavBar} onClick={onclickLogoRemove}>
         {printNavBar && 
           <LogoTimes 
             className="fas fa-times"
-            onClick = {onclickLogoTimes}
+            onClick = {onclickLogoRemove}
           >
           </LogoTimes>
         }
@@ -91,13 +92,11 @@ const Nav = () => {
           </Link>
         </NavBarLi>
       </NavbarUl>
-      {!printNavBar &&
         <LogoBars
           className="fas fa-bars"
           onClick= {onclickLogoBars}
         >
         </LogoBars>
-      }
     </ContainerNav>
   )
 }

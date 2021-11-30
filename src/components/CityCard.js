@@ -14,7 +14,9 @@ const ImageContainer = styled.div`
     border-radius : 20px;
     // background-color : red;
     margin : 20px 40px 20px 20px ;
-    // height : 500px;
+        @media (max-width: 770px) {
+           width : 80%;     
+        }
         &:first-child {
             width : 100%;
             height : 450px;
@@ -24,8 +26,10 @@ const ImageContainer = styled.div`
             flex-direction: column;
             align-items : center;
             position : relative;
+                @media (max-width: 770px) {
+                    height : 650px;
+                }
         }
-        
 
 `
 const Image = styled.img`
@@ -35,6 +39,7 @@ const Image = styled.img`
     object-fit: fill;
     box-shadow: 6px 6px 5px grey;
     cursor : pointer;
+         
         &:first-child {
             left:0;
             width : 100%;
@@ -43,7 +48,12 @@ const Image = styled.img`
             object-fit: cover;
             margin-bottom : 20px;
             // position:absolute;
+
+            @media (max-width: 770px) {
+                height : 650px;     
+            }
         }
+        
 `
 const CityName = styled.h2`
     font-size : 35px;

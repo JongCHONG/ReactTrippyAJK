@@ -10,17 +10,34 @@ const PageFooter = styled.footer`
     background-color:#ABE7E7;
     padding-top : 20px;
     margin-top : 40px;
+        @media (max-width: 810px) {
+            align-items : center;
+        }
+    
 `
 const ListContainer= styled.div`
     display : flex;
     justify-content : center;
     gap: 10%;
     @media (max-width: 810px) {
-        f
-      }
+        width : 100%;
+        flex-direction : column;
+        align-items : center;
+        // flex-wrap : wrap;
+    }
 `
 const ListElements = styled.div`
     width : 20%;
+    @media (max-width: 810px) {
+        width : 50%;
+        display : flex;
+        // justify-content : center;
+    }
+    @media (max-width: 810px) {
+        width : 90%;
+        display : flex;
+        // justify-content : center;
+    }
 `
 const LogoContainer = styled.div`
     width: 100%;
