@@ -30,6 +30,7 @@ const HotelMarker = (props) => {
     setshowInfoWindow(false)
   }
 
+<<<<<<< HEAD
   // useEffect(() => {
   //   if (listHotel._id === selectedHotel) {
   //     ref.current.scrollIntoView({ behavior: "smooth" })
@@ -37,6 +38,9 @@ const HotelMarker = (props) => {
   // }, [selectedHotel])
 
   console.log(listHotel)
+=======
+  // console.log("hotelmaker", Id)
+>>>>>>> origin
   return (
     <>
       <MarkerContainer>

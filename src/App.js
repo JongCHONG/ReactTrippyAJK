@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import styled from "styled-components"
+import { IdContextProvider } from "./contexts/Id"
 
 import Home from "./pages/Home"
 import Hotels from "./pages/Hotels"
@@ -38,6 +39,7 @@ const App = () => {
       <GlobalStyle/>
       <div>
         <Container>
+<<<<<<< HEAD
           <BrowserRouter>
             <Header>
               <H1>
@@ -57,6 +59,28 @@ const App = () => {
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>
+=======
+          <IdContextProvider>
+            <BrowserRouter>
+              <Header>
+                <H1>
+                  Trippy-Advisor
+                </H1>
+                <Nav />
+              </Header>
+              
+              <Routes>
+                <Route exact path="/" element={<Home />} />
+                <Route exact path="/hotels/paris/" element={<Hotels />} />
+                <Route path="/hotels/:city" element={<Hotels />} />
+                <Route exact path="/hotelpage/" element={<HotelPage />} />
+                <Route path="/hotel/:id" element={<HotelPage />} />
+                <Route path="/favoris" element={<Favoris/>}/>
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </BrowserRouter>
+          </IdContextProvider>
+>>>>>>> origin
         </Container>
         <Footer/>
       </div>
