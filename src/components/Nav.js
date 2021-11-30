@@ -38,10 +38,10 @@ const NavBarLi = styled.li`
     }
 `
 const LogoBars = styled.i`
-    // :before {
-    //   display : none;
-    // }
+  position : absolute;
+  top : -70;
   @media (max-width: 810px) {
+    position : relative;
     font-size : 40px;
     cursor : pointer;
     display : block;

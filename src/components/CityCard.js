@@ -15,7 +15,7 @@ const ImageContainer = styled.div`
     // background-color : red;
     margin : 20px 40px 20px 20px ;
         @media (max-width: 770px) {
-           width : 60%;     
+           width : 80%;     
         }
         &:first-child {
             width : 100%;
