@@ -45,8 +45,15 @@ const PriceStars = styled.div`
   justify-content: space-between;
   font-size : 20px;
 `
+const Logo = styled.i`
+cursor : pointer;
+fontSize : 25px; 
+  &:hover {
+    color : red;
+  }
+`
 
-const HotelRef = ({element, index, onclickPicture, selectedHotel}) => {
+const HotelRef = ({element, index, onclickLogo, selectedHotel, favorisId}) => {
   const titleRef = useRef()
 
   useEffect(() => {
@@ -68,11 +75,11 @@ const HotelRef = ({element, index, onclickPicture, selectedHotel}) => {
         <ImageDesrcription>
           <ImageTitle>
             <h4>{element.name}</h4>
-            <i class="far fa-heart"
-            style={{fontSize : "25px"}}
-            onClick = {() => onclickPicture (element._id)}
+            <Logo className="fas fa-heart"
+              style={{ color : favorisId.includes(element._id) ? "red" : " "}}
+              onClick = {() => onclickLogo (element._id)}
             >
-            </i>
+            </Logo>
           </ImageTitle>
           <PriceStars>
             <p>{element.price + "€"}</p>

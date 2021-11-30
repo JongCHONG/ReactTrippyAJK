@@ -80,6 +80,13 @@ const Buttons = styled.div`
 //   justify-content: space-between;
 //   font-size : 20px;
 // `
+// const Logo = styled.i`
+// cursor : pointer;
+// fontSize : 25px; 
+//   &:hover {
+//     color : red;
+//   }
+// `
 
 const Hotels = (props) => {
   const { city } = useParams();
@@ -90,6 +97,8 @@ const Hotels = (props) => {
   // const { Id } = useContext(IdContext)
   let numPage = [];
   let indexArray = [] 
+  const [logoColor, setLogoColor] = useState(false)
+  const [favorisId, setFavorisId] = useState([])
 
   useEffect(() => {
     fetch(`https://trippy-konexio.herokuapp.com/api/hotels/city/${city ? city : "paris"}?page=${page}`)
@@ -115,29 +124,44 @@ const Hotels = (props) => {
   //   if (Id === selectedHotel) {
   //     titleRef.current.scrollIntoView({ behavior: "smooth" })
   //   }
-  // }, [selectedHotel, Id])
-  // if (!selectedHotel) {
-  //   return null
-  // }
-  // console.log("selectedhotels", selectedHotel)
-  const onclickPicture = (index) => {
-    // console.log("index",index);
-    if(localStorage.getItem("indexs")){
-      indexArray = JSON.parse(localStorage.getItem("indexs"))
-      indexArray.push(index)
-    } else {
-      indexArray.push(index)
+  // }, [selectedHotel])
+
+  // console.log(listHotel)
+  const onclickLogo = (index) => {
+    if(favorisId.includes(index)) {
+      onclickRemove(index)
+    }else {
+      if(localStorage.getItem("indexs")){
+        indexArray = JSON.parse(localStorage.getItem("indexs"))
+        indexArray.push(index)
+      } else {
+        indexArray.push(index)
+      }
+      localStorage.setItem("indexs",JSON.stringify(indexArray)) 
+      setFavorisId(indexArray)
     }
-    localStorage.setItem("indexs",JSON.stringify(indexArray)) 
+    
   }
-  // console.log("hotel",city);
+  const onclickRemove = (id) => {
+    if(localStorage.getItem("indexs")){
+        indexArray = JSON.parse(localStorage.getItem("indexs"))
+        const index = indexArray.findIndex(element => {
+            return element === id
+        })
+        // console.log("elementId", index);
+        indexArray.splice(index,1)
+     }
+      localStorage.setItem("indexs",JSON.stringify(indexArray))
+      setFavorisId(indexArray)
+  }
+  console.log("favoris",favorisId);
   return (
     <>
       <SectionListHotel>
         <DivLeft>
           <ListHotel>
             {listHotel.results.map((element, index) => (
-              <HotelRef selectedHotel={selectedHotel} element={element} index={index} onclickPicture={onclickPicture}/>
+              <HotelRef favorisId={favorisId} selectedHotel={selectedHotel} element={element} index={index} onclickLogo={onclickLogo}/>
             ))}
           </ListHotel>
           <Buttons> 
