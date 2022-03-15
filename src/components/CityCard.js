@@ -98,7 +98,7 @@ export default function CityCard() {
     },[])
     // console.log("city: ",city);
     if(!city) {
-        return null
+        return <h1>Chargement</h1>
     }
     return (
             <CityContainer>
